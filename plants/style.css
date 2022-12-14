@@ -1,0 +1,84 @@
+/* font-family: 'Inika', serif;
+font-family: 'Inter', sans-serif; */
+
+*{
+    font-family: 'Inika', serif;
+}
+
+.main-container{
+    width: 1440px;
+}
+
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.header {
+    width: 1440px;
+    height: 134px;
+    background-color: #EDF2EC;
+}
+
+.section{
+    background-color: #EDF2EC;
+}
+
+.section:nth-child(2n){
+    background-color: #fff;
+}
+
+.about-title{
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 52px;  
+    color: #499A18;
+}
+
+.about-title span {
+    color:#E06733;
+}
+
+.welcome-title{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 45px;
+line-height: 50px;
+color: #717171;
+}
+
+.welcome-title span{
+   color: #499A18;
+}
+
+
+.prices-title{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 40px;
+line-height: 48px;
+color: black;
+}
+
+.prices-title:last-child{
+    line-height: 50px;
+    text-align: right;
+}
+
+.prices-title span{
+    color: #499A18;
+}
+
+.card-title{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 20px;
+text-align: center;
+color: #E06733;
+}
