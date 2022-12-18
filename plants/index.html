@@ -96,18 +96,21 @@
             <div class="prices-wrapper">
             <div class="prices-container">
             <h2 class="prices-title ">Prices</h2>
-            <div class="prices-check">
-            <div>
-                <input type="radio" id="basics" name="prices" value="basics" />
-                <label for="basics">Basics</label>
+            <div class="prices-check-container">
+            <div class="prices-check" >
+                <input  type="radio" id="basics" name="prices" value="basics" />
+                <label for="basics">Basics</label> 
+                <img src="assets/btn-prices.svg" alt="arrow">
               </div>
-              <div>
+              <div class="prices-check" >
                 <input type="radio" id="standart" name="prices" value="standart" />
-                <label for="standard">Standart</label>
+                <label  for="standard">Standart</label>
+                <img src="assets/btn-prices.svg" alt="arrow">
               </div>
-              <div>
-                <input type="radio" id="pro-care" name="prices" value="pro-care" />
-                <label for="pro-care">Pro Care</label>
+              <div class="prices-check" >
+                <input  type="radio" id="pro-care" name="prices" value="pro-care" />
+                <label  for="pro-care">Pro Care</label>
+                <img src="assets/btn-prices.svg" alt="arrow">
               </div> 
             </div>
         </div>
@@ -120,8 +123,20 @@
     </div>
         </section>
         <section id="contacts" class="section">
-            <h2>Contact Us</h2>
-            <img src="assets/contact_woman 1.png" alt="welcoming woman">
+            <div class="contacts-wrapper">
+            <img class="contacts-img" src="assets/contact_woman 1.png" alt="welcoming woman">
+            <h2 class="contacts-title">Contact Us</h2>
+            <div class="select-city-container">
+                <label for="city-select"></label>
+
+<select name="city" id="city-select">
+    <option value="">City</option>
+    <option value="city1">Canandaigua, NY</option>
+    <option value="city2">New York City</option>
+    <option value="city3">Yonkers, NY</option>
+    <option value="city4">Sherrill, NY</option>
+</select>
+            </div> </div>
         </section>
         
     </main>
