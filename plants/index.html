@@ -10,69 +10,114 @@
 </head>
 <body>  
     <header class="header flex-container">
-        <nav>
-            <ul>
-                <li><a href="#welcome">Home</a></li>
-                <li> <a href="#about">About Us</a> </li>
-                <li> <a href="#service">Service</a> </li>
-                <li> <a href="#prices">Price</a> </li>
-                <li> <a href="#contacts">Contacts</a></li>
+        <img class="logo1" src="assets/Vector 1.svg" alt="plants logo">
+        <img class="logo" src="assets/Vector 2.svg" alt="plants logo">
+        <span>Plants</span>
+        <nav class="nav-header">
+            <ul class="nav-list">
+                <li><a class="nav-link" href="#welcome">Home</a></li>
+                <li> <a class="nav-link" href="#about">About Us</a> </li>
+                <li> <a class="nav-link" href="#service">Service</a> </li>
+                <li> <a class="nav-link" href="#prices">Price</a> </li>
+                <li> <a class="nav-link" href="#contacts">Contacts</a></li>
             </ul>
         </nav>
     </header>
     <main class="main-container">
         <section id="welcome" class="section flex-container">
+            <div class="welcome-wrapper">
+            <img class="leaf-welcome" src="assets/leafs-welcome.svg" alt="leaves">
+            <div class="welcome-text">
             <h1 class="welcome-title">We grow <span>plants</span> and give you oxygen</h1>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-            <button>LEARN MORE</button>
+            <button class="welcome-button">LEARN MORE</button>
+        </div>
+    </div>
         </section>
         <section id="about" class="section flex-container">
+            <div class="about-text flex-container">
             <h2 class="about-title">We are <span>professional experienced</span> gardeners</h2>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
-            <img src="assets/houseplant 1.jpg" alt="houseplant">
+        </div>
+            <img class="img-about" src="assets/houseplant 1.jpg" alt="houseplant">
         </section>
         <section id="service" class="section flex-container">
-            <h2>Service and our projects</h2>
-            <button>Gardens</button>
-            <button>Lawn</button>
-            <button>Planting</button>
+            <h2 class="service-title">Service and our projects</h2>
+            <div class="service-buttons">
+            <button class="service-button btn-gardens">Gardens</button>
+            <button class="service-button btn-lawn">Lawn</button>
+            <button class="service-button btn-planting">Planting</button>
+        </div>
             <div class="cards-container flex-container">
-            <div class="card">
+            <div class="card card-gardens">
                     <img src="assets/service1.jpg" alt="garden care">
+                    <div class="card-text">
                     <h3 class="card-title">Garden care</h3>
                     <p>Lorem Ipsum has been the industry</p>
+                    </div>
             </div>
-            <div class="card">
+            <div class="card card-planting">
                     <img src="assets/service2.jpg" alt="planting">
+                    <div class="card-text">
                     <h3 class="card-title">Planting</h3>
-                    <p>Lorem Ipsum has been the industry</p>
+                    <p>Lorem Ipsum has been the industry</p> </div>
             </div>
-            <div class="card">
+            <div class="card card-lawn">
                     <img src="assets/service3.jpg" alt="lawn care">
+                    <div class="card-text">
                     <h3 class="card-title">Lawn care</h3>
                     <p>Lorem Ipsum has been the industry</p>
+                    </div>
             </div>
-            <div class="card">
+            <div class="card card-planting">
                 <img src="assets/service4.jpg" alt="planting">
+                <div class="card-text">
                 <h3 class="card-title">Planting</h3>
                     <p>Lorem Ipsum has been the industry</p>
+                </div>
             </div>
-            <div class="card">
+            <div class="card card-gardens">
                 <img src="assets/service5.jpg" alt="garden care">
+                <div class="card-text">
                 <h3 class="card-title">Garden care</h3>
                     <p>Lorem Ipsum has been the industry</p>
+                    </div>
             </div>
-            <div class="card">
+            <div class="card card-planting">
                 <img src="assets/service6.jpg" alt="planting">
+                <div class="card-text">
                 <h3 class="card-title">Planting</h3>
                 <p>Lorem Ipsum has been the industry</p>
+                </div>
             </div>
         </div>
         </section>
-        <section id="prices" class="section">
+        <section id="prices" class="section ">
+            <div class="prices-wrapper">
+            <div class="prices-container">
             <h2 class="prices-title ">Prices</h2>
+            <div class="prices-check">
+            <div>
+                <input type="radio" id="basics" name="prices" value="basics" />
+                <label for="basics">Basics</label>
+              </div>
+              <div>
+                <input type="radio" id="standart" name="prices" value="standart" />
+                <label for="standard">Standart</label>
+              </div>
+              <div>
+                <input type="radio" id="pro-care" name="prices" value="pro-care" />
+                <label for="pro-care">Pro Care</label>
+              </div> 
+            </div>
+        </div>
+            <div class="prices-contact-container">
             <h2 class="prices-title">Our best <span>gardeners</span> are ready to help you</h2>
-            <button>Contact Us</button>
+            <button class="prices-contact">Contact Us</button>
+                <img class="leafs-prices" src="assets/leafs-prices.svg" alt="leaf image">
+    
+            </div>
+    </div>
         </section>
         <section id="contacts" class="section">
             <h2>Contact Us</h2>
@@ -81,17 +126,19 @@
         
     </main>
     <footer class="footer flex-container">
-        <span>github</span>
-        <span>2022</span>
+        
+        <span>&copy; 2022  github</span>
+        
         <span>Rolling Scopes School</span>
-        <nav>
-            <ul>
+        <nav class="nav-footer">
+            <ul class="nav-list">
                 <li><img src="assets/instagram.svg" alt="instagram logo"></li>
                 <li><img src="assets/facebook.svg" alt="facebook logo"></li>
                 <li><img src="assets/twitter.svg" alt="twitter logo"></li>
                 <li><img src="assets/pinterest.svg" alt="pinterest logo"></li>
             </ul>
         </nav>
+    
     </footer>  
 </body>
 </html>
