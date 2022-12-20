@@ -5,6 +5,10 @@ font-family: 'Inter', sans-serif; */
     font-family: 'Inika', serif;
 }
 
+html {
+    scroll-behavior: smooth; 
+  }
+
 body{
     width: 1440px;
     margin: auto;
@@ -157,6 +161,12 @@ border: 2px solid #E06733;
 border-radius: 10px;
 }
 
+.welcome-button:hover {
+    background-color: #E06733;
+    cursor: pointer;
+    color: #FFFFFF;
+}
+
 #about{
 align-items: center;
 justify-content: space-between;
@@ -181,12 +191,6 @@ justify-content: space-between;
     color:#E06733;
 }
 
-.img-about{
-    /* width: 464px;
-    height: 479px;
-    margin-top: 93px;
-    margin-bottom: 94px */
-}
 
 #service{
     height: 1300px;
@@ -215,7 +219,7 @@ border-radius: 5px;
     color: #E06733;
 }
 
-.service-buttons{
+.service-buttons-container {
     margin-top: 69px;
     display: flex;
     justify-content: space-between;
@@ -223,12 +227,11 @@ border-radius: 5px;
 height: 50px;
 padding-left: 142px;
 }
+
 .service-button:hover{
     background-color: #E06733;
-    color:#fff
-}
-.card{
-  
+    color: #FFFFFF;
+    cursor: pointer;
 }
 
 .cards-container{
@@ -351,7 +354,13 @@ background: #EDF2EC;
 border-radius: 20px;
 }
 
-.prices-contact{
+input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+
+.prices-button{
     font-weight: 700;
     font-size: 20px;
     line-height: 26px;
@@ -365,6 +374,14 @@ background-color: #FFFFFF ;
 margin-bottom: 39px;
 margin-top: 38px;
 }
+
+.prices-button:hover {
+    background-color: #E06733;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+
 
 .contacts-title {
     font-weight: 700;
@@ -429,8 +446,13 @@ color: #000000;
     padding: 15px
 }
 
-.custom-checkbox {
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
-  }
+
+.link{
+    text-decoration: none;
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 50px;
+color: #000000;
+}
