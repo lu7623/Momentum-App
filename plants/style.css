@@ -428,7 +428,8 @@ margin-top: 38px;
 font-size: 40px;
 line-height: 52px;
 color: #499A18;
-margin: 0px 64px 0px 113px;
+margin-top: 5px;
+padding-left: 60px;
 }
 
 .contacts-img {
@@ -437,9 +438,7 @@ height: 495px;
 }
 
 .select-city-container {
-    height: 50px;
-    width: 450px;
-    margin-top: 148px;
+    margin-top: 94px;
 }
 
 select {
@@ -455,30 +454,52 @@ margin-left: 20px;
 background: #D6E7D2;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 0px;
+height: 50px;
+width: 450px;
 }
 
 .footer{
     height: 130px;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 109px;
-    padding-right: 109px;
 }
 
+.footer-wrapper{
+    width: 1222px;
+height: 50px;
+margin: 40px 109px;
+justify-content: space-between;
+align-items: center;
+}
 
 .footer span {
     font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
 font-size: 20px;
-line-height: 50px;
 color: #000000;
 }
 
-.footer img {
-    padding: 15px
+.nav-footer{
+
 }
 
+.github{
+    width:182px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-list{
+    width: 188px;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sotial-logo{
+    padding: 0;
+}
 
 .link{
     text-decoration: none;
