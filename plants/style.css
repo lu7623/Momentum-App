@@ -35,6 +35,7 @@ body {
   align-items: flex-start;
   margin: 0 auto;
 }
+
 .logo-wrapper {
   height: 50px;
   align-items: center;
@@ -42,8 +43,6 @@ body {
 
 .logo-wrapper span {
   width: 58.13px;
-  font-family: "Inika";
-  font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 21px;
@@ -83,8 +82,6 @@ body {
 
 .section {
   background-color: #edf2ec;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .section:nth-child(2n) {
@@ -94,13 +91,13 @@ body {
 .title {
   font-size: 40px;
 }
+
 .leaf-welcome {
   width: 448.8px;
   height: 407.36px;
 }
 
 .welcome-wrapper {
-  height: 407px;
   justify-content: space-between;
   padding: 62px 0;
   margin: 0 auto;
@@ -162,7 +159,6 @@ body {
 }
 
 .about-wrapper {
-  height: 479px;
   align-items: center;
   justify-content: space-between;
   padding: 93px 0;
@@ -172,6 +168,7 @@ body {
   width: 605px;
   height: 350px;
 }
+
 .about-text p {
   font-size: 20px;
   line-height: 30px;
@@ -183,7 +180,6 @@ body {
   width: 463px;
   font-family: "Inika";
   font-weight: normal;
-
   line-height: 52px;
   color: #499a18;
   margin: 0;
@@ -201,7 +197,6 @@ body {
 .service-title {
   font-style: normal;
   font-weight: 400;
-
   line-height: 52px;
   color: #499a18;
   margin: 0;
@@ -240,9 +235,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  width: 1222px;
+  width: 100%;
   min-height: 955px;
-  padding-top: 90px;
+  padding-top: 92px;
   margin: 0 auto;
 }
 
@@ -268,6 +263,7 @@ body {
   height: 450px;
   margin-bottom: 55px;
 }
+
 .card-text {
   width: 100%;
   height: 100px;
@@ -296,6 +292,7 @@ body {
   line-height: 48px;
   color: black;
   margin: 0;
+  letter-spacing: 0.015em;
 }
 
 .prices-text {
@@ -307,6 +304,7 @@ body {
   text-align: right;
   color: black;
   margin: 0;
+  letter-spacing: 0.015em;
 }
 
 .prices-text span {
@@ -413,7 +411,7 @@ input {
   line-height: 52px;
   color: #499a18;
   margin-top: 5px;
-  padding-left: 70px;
+  padding-left: 65px;
 }
 
 .contacts-img {
