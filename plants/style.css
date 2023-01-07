@@ -23,16 +23,21 @@ body {
   background-color: #edf2ec;
 }
 
+.wrapper{
+    width: 1222px;
+    padding: 0 109px;
+    margin: 0 auto;
+}
+
 .header-wrapper {
-  width: 1220px;
+    width: 1220px;
   height: 50px;
-  padding: 42px 109px;
-  margin: 0 auto;
+ padding: 42px 109px;
   justify-content: space-between;
   align-items: flex-start;
 }
 .logo-wrapper {
-  height: 50px;
+  height: 50px 0;
   align-items: center;
 }
 
@@ -122,16 +127,14 @@ body {
 }
 
 #welcome {
-  display: flex;
   justify-content: right;
   
 }
 
 .welcome-wrapper {
-  width: 1222px;
   height: 407px;
   justify-content: space-between;
-  padding: 62px 109px;
+  padding: 62px 0;
   margin: 0 auto;
 }
 
@@ -192,12 +195,10 @@ body {
 
 
 .about-wrapper {
-  width: 1222px;
   height: 479px;
   align-items: center;
   justify-content: space-between;
-  padding: 93px 109px;
-  margin: 0 auto;
+  padding: 93px 0;
 }
 
 .about-text {
@@ -233,7 +234,6 @@ body {
   width: 1007px;
   height: 94px;
   padding: 40px 324px 40px 109px;
-  margin: 0 auto;
 }
 
 .service-title {
@@ -327,11 +327,10 @@ body {
 }
 
 .prices-wrapper {
-  width: 1222px;
   height: 405px;
   justify-content: space-between;
-  padding: 40px 109px 115px 109px;
-  margin: 0 auto;
+  padding: 40px 0 115px 0;
+
 }
 
 .prices-title {
@@ -376,9 +375,6 @@ body {
   flex-wrap: wrap;
 }
 
-.prices-contact-container h3 {
-  text-align: right;
-}
 
 .prices-check-container {
   margin-top: 60px;
@@ -455,14 +451,12 @@ input {
 }
 
 #contacts {
-  min-height: 550px;
+
 }
 
 .contacts-wrapper {
-  width: 1222px;
   justify-content: space-between;
-  padding: 53px 109px 0 109px;
-  margin: 0 auto;
+  padding-top: 53px;
 }
 
 .contacts-title {
@@ -593,14 +587,20 @@ padding-top: 0;
         height: 200px;
     }
 
-    .welcome-wrapper{
-        padding: 40px 50px 70px 50px;
+    .wrapper{  
         width: 668px;
+        padding: 0 50px;
+    }
+    .welcome-wrapper{
+        padding: 40px 0 70px 0;
+        
 height: 310px;
     }
+
+
     .about-wrapper{
-        padding: 40px 50px 95px 50px;
-        width: 668px;
+        padding: 40px 0 95px 0;
+        0
         height: 642px;
         align-items: center;
         justify-content: center;
@@ -619,7 +619,7 @@ height: 310px;
     }
 
     .service-wrapper{
-padding: 60px 50px 70px 50px;
+padding: 60px 0 70px 0;
 
     }
     .service-buttons-container{
@@ -629,6 +629,7 @@ padding: 60px 50px 70px 50px;
     }
     .cards-container{
         padding: 40px 50px 32px 50px;
+        justify-content: center;
     }
 
     .card {
@@ -647,7 +648,7 @@ padding: 60px 50px 70px 50px;
         margin-right: 0;
     }
     .prices-wrapper{
-        padding: 40px 50px 88px 50px;
+        padding: 40px 0 88px 50px;
         width: 668px;
 height: 358px;
     }
@@ -670,11 +671,14 @@ height: 175px;
 
     .contacts-wrapper{
         padding: 40px 50px 0 50px;
-        justify-content: center;
-        align-items: flex-end;
+        flex-direction: column;
+        justify-content: space-between;
+        height:  739px;
+        align-items: center;
     }
 .contacts-title{
     text-align: center;
+    padding: 0;
 }
     .contacts-img{
         order:2;
@@ -697,12 +701,14 @@ line-height: 24px;
 
 }
 
-@media (max-width: 760px) {
+@media (max-width: 767px) {
     .header{
         height: auto;
     }
     .header-wrapper{
         height: fit-content;
+        padding: 36px 25px;
+        width: 100vw;
     }
     .menu {
         width: 100%;
@@ -711,7 +717,6 @@ line-height: 24px;
 justify-content: flex-end;
 display: none;
     }
-
    
    
     .menu-btn{
@@ -749,5 +754,126 @@ display: none;
         background-color: #e3e1d5;
        
     }
+    .leaf-welcome{
+       display: none;
+    }
 
+    .wrapper{
+        width: 100vw;
+        padding: 24px 25px;
+    }
+
+    .welcome-title{
+        font-size: 25px;
+line-height: 35px;
+    }
+    .welcome-text{
+        width: 100%;
+    }
+    .welcome-button{
+        width: 100px;
+height: 34px;
+font-size: 10px;
+    }
+    .title{
+        font-size: 25px;
+line-height: 33px;
+    }
+
+    .about-wrapper{
+       width: 100vh;
+    }
+    .about-title{
+    width: auto;
+    }
+    .about-text{
+        width: 100%;
+    }
+    .about-text p{
+        font-size: 15px;
+line-height: 25px;
+    }
+
+    .img-about{
+        width: 150px;
+height: 147px;
+    }
+
+    .service-title{
+        height: fit-content;
+        margin-bottom: 35px;
+    }
+ .service-button{
+    margin-right: 10px;
+    margin-bottom: 9px;
+ }
+ .service-buttons-container{
+    width: auto;
+    justify-content: flex-start;
+    margin: 0;
+ }
+
+ .cards-container{
+    margin-top: 31px;
+    padding: 0;
+ }
+ .card{
+    margin: 0 0 34px 0;
+ }
+ .card:last-child {
+    margin-bottom: 27px;
+ }
+ .prices-wrapper{
+    height: fit-content;
+ }
+ .leafs-prices{
+    display: none;
+ }
+ .prices-contact-container{
+    margin: 0;
+    align-items: center;
+ }
+ .prices-text{
+    font-size: 20px;
+line-height: 35px;
+text-align: center;
+ }
+ .button{
+    width: 121px;
+height: 35px;
+font-size: 15px;
+line-height: 20px;
+ }
+
+ .prices-title{
+    text-align: center;
+ }
+
+ .prices-check-container{
+    display: flex;
+    width: 224px;
+height: 235px;
+margin:0;
+justify-content: center;
+ }
+
+ .prices-check-wrapper{
+   
+ }
+ .contacts-wrapper{
+    height: 445px;
+    padding-bottom: 0;
+
+ }
+ .contacts-img{
+    width: 100px;
+height: 124.25px;
+ }
+ select{
+    width: 300px;
+    margin:0;
+ }
+ .footer-wrapper{
+    padding: 21px 85px 7px 85px;
+ }
 }
