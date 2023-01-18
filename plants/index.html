@@ -21,13 +21,14 @@
           <img class="logo" src="assets/logo_vector.svg" alt="plants logo" >
           <span>Plants</span>
         </div>
-        <button class="menu-btn">
+  <div class="menu-btn">
             <span></span>
             <span></span>
             <span></span>
-        </button>
+            <span></span>
+  </div>
         <nav class="flex-container menu">
-            
+ 
           <ul class="nav-list flex-container">
             <li><a class="nav-link flex-container" href="#welcome">Home</a></li>
             <li>
@@ -95,48 +96,49 @@
             <button class="service-button btn-lawn button">Lawn</button>
             <button class="service-button btn-planting button">Planting</button>
           </div>
-        </div>
-        <div class="cards-container flex-container">
-          <div class="card card-gardens flex-container">
-            <img src="assets/service1.png" alt="garden care" >
-            <div class="card-text">
-              <h3 class="card-title">Garden care</h3>
-              <p>Lorem Ipsum has been the industry</p>
+ 
+          <div class="cards-container flex-container">
+            <div class="card card-gardens flex-container">
+              <div class="card-img"></div>
+              <div class="card-text">
+                <h3 class="card-title">Garden care</h3>
+                <p>Lorem Ipsum has been the industry</p>
+              </div>
             </div>
-          </div>
-          <div class="card card-planting flex-container">
-            <img src="assets/service2.png" alt="planting" >
-            <div class="card-text">
-              <h3 class="card-title">Planting</h3>
-              <p>Lorem Ipsum has been the industry</p>
+            <div class="card card-planting flex-container">
+              <div class="card-img"></div>
+              <div class="card-text">
+                <h3 class="card-title">Planting</h3>
+                <p>Lorem Ipsum has been the industry</p>
+              </div>
             </div>
-          </div>
-          <div class="card card-lawn flex-container">
-            <img src="assets/service3.png" alt="lawn care" >
-            <div class="card-text">
-              <h3 class="card-title">Lawn care</h3>
-              <p>Lorem Ipsum has been the industry</p>
+            <div class="card card-lawn flex-container">
+              <div class="card-img"></div>
+              <div class="card-text">
+                <h3 class="card-title">Lawn care</h3>
+                <p>Lorem Ipsum has been the industry</p>
+              </div>
             </div>
-          </div>
-          <div class="card card-planting flex-container">
-            <img src="assets/service4.png" alt="planting" >
-            <div class="card-text">
-              <h3 class="card-title">Planting</h3>
-              <p>Lorem Ipsum has been the industry</p>
+            <div class="card card-planting flex-container">
+              <div class="card-img"></div>
+              <div class="card-text">
+                <h3 class="card-title">Planting</h3>
+                <p>Lorem Ipsum has been the industry</p>
+              </div>
             </div>
-          </div>
-          <div class="card card-gardens flex-container">
-            <img src="assets/service5.png" alt="garden care" >
-            <div class="card-text">
-              <h3 class="card-title">Garden care</h3>
-              <p>Lorem Ipsum has been the industry</p>
+            <div class="card card-gardens flex-container">
+              <div class="card-img"></div>
+              <div class="card-text">
+                <h3 class="card-title">Garden care</h3>
+                <p>Lorem Ipsum has been the industry</p>
+              </div>
             </div>
-          </div>
-          <div class="card card-planting flex-container">
-            <img src="assets/service6.png" alt="planting" >
-            <div class="card-text">
-              <h3 class="card-title">Planting</h3>
-              <p>Lorem Ipsum has been the industry</p>
+            <div class="card card-planting flex-container">
+              <div class="card-img"></div>
+              <div class="card-text">
+                <h3 class="card-title">Planting</h3>
+                <p>Lorem Ipsum has been the industry</p>
+              </div>
             </div>
           </div>
         </div>
@@ -180,7 +182,7 @@
               </div>
             </div>
           </div>
-          <div class="prices-contact-container">
+          <div class="prices-contact-container flex-container">
             <h3 class="prices-text">
               Our best <span>gardeners</span> are ready to help you
             </h3>
@@ -193,18 +195,16 @@
           </div>
         </div>
       </section>
-      <section id="contacts" class="section">
+      <section id="contacts" class="section flex-container">
         <div class="contacts-wrapper flex-container wrapper">
           <img
             class="contacts-img"
             src="assets/contact_woman1.png"
             alt="welcoming woman"
           >
-          <div class="contacts-content">
           <h2 class="contacts-title title">Contact us</h2>
           <div class="select-city-container">
             <label for="city-select"></label>
-
             <select name="city" id="city-select">
               <option value="">City</option>
               <option value="city1">Canandaigua, NY</option>
@@ -213,7 +213,6 @@
               <option value="city4">Sherrill, NY</option>
             </select>
           </div>
-        </div>
         </div>
       </section>
     </main>
@@ -238,7 +237,8 @@
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M15.36 0.666992C17.76 0.666992 18.267 0.693992 19.493
+                <path
+                  d="M15.36 0.666992C17.76 0.666992 18.267 0.693992 19.493
                 0.746992C20.906 0.813992 21.88 1.03999 22.72 1.37399C23.6
                 1.70699 24.347 2.17399 25.08 2.90699C25.827 3.63999 26.28
                 4.38699 26.627 5.26699C26.96 6.10699 27.174 7.07999 27.24
@@ -288,9 +288,9 @@
                 16.456 9.54699 14 9.54699ZM21.107 5.27999C21.991 5.27999 22.707
                 5.99599 22.707 6.87999C22.707 7.76399 21.991 8.47999 21.107
                 8.47999C20.223 8.47999 19.507 7.76399 19.507 6.87999C19.507
-                5.99599 20.223 5.27999 21.107 5.27999Z" />
-              </svg></a
-            >
+                5.99599 20.223 5.27999 21.107 5.27999Z"
+                /></svg
+            ></a>
           </li>
           <li>
             <a href="https://www.facebook.com">
@@ -345,3 +345,5 @@
     <script src="index.js"></script>
   </body>
 </html>
+ 
+
