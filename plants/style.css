@@ -76,7 +76,6 @@ body {
 
 .nav-link:hover {
   color: #e06733;
-  font-weight: 700;
   transition: all 300ms ease-in;
 }
 
@@ -762,7 +761,7 @@ line-height: 52px;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 700px) {
   .header {
     height: auto;
   }
@@ -777,50 +776,67 @@ line-height: 52px;
   }
 
   .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    padding: 15px;
-    justify-content: flex-end;
-    display: none;
+    background: #edf2ec;
+    transform: translateX(-100%);
+    transition: transform 0.5s; 
+    align-items: flex-start;
+  }
+
+  .menu-active {
+    transform: translateX(0);
+  }
+
+  .menu-btn-close {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    z-index: 11;
   }
 
   .menu-btn {
     opacity: 1;
-    width: 40px;
-height: 24px;
+	z-index:2;
+	overflow: hidden;
   }
 
-  .menu-btn:focus ~ .menu {
-    display: flex;
-  }
-
-  .menu-btn:focus span:nth-of-type(1) {
+  .menu-btn-close span:nth-of-type(1) {
     display: none;
   }
-  .menu-btn:focus span:nth-of-type(2) {
-    top: 50%;
-    transform: translate(-50%, 0%) rotate(45deg);
+  .menu-btn-close span:nth-of-type(2) {
+  
+    transform: translate(-20%, 20px) rotate(45deg);
   }
-  .menu-btn:focus span:nth-of-type(3) {
-    top: 50%;
-    transform: translate(-50%, 0%) rotate(-45deg);
+  .menu-btn-close span:nth-of-type(3) {
+    
+    transform: translate(-20%, -16.5px) rotate(-45deg);
+  }
+  .menu-btn-close span:nth-of-type(4) {
+    display: none;
   }
 
   .nav-list {
     flex-direction: column;
     height: auto;
-    width: 200px;
+    width: 300px;
     align-items: flex-end;
   }
+
   .nav-link {
     text-align: right;
     width: 200px;
     justify-content: flex-end;
     padding-right: 20px;
+    padding-top: 50px;
+    font-size: 20px;
   }
-  .nav-link:hover {
-    background-color: #e3e1d5;
-  }
+
   .leaf-welcome {
     display: none;
   }
@@ -863,9 +879,11 @@ height: 24px;
     width: auto;
     padding-top: 7px;;
   }
+
   .about-text {
     width: 100%;
   }
+
   .about-text p {
     font-family: 'Inter';
 font-style: normal;
