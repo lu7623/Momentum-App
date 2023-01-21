@@ -1,4 +1,4 @@
-console.log("Вёрстка валидная +10 \n Вёрстка семантическая +20 \n Вёрстка соответствует макету +40\n Требования к css + 10 \n Интерактивность, реализуемая через css +20 \n Итого 100");
+
 let menuBtn = document.querySelector('.menu-btn');
 let menu = document.querySelector('.menu');
 const a  = document.querySelectorAll('.nav-link');
@@ -14,3 +14,9 @@ link.addEventListener('click', function(){
 })
 }
 
+document.addEventListener('click', function(e) {
+    if (menu.classList.contains("menu-active") && !e.target.classList.contains('close')) {
+        menu.classList.remove('menu-active');
+        menuBtn.classList.remove('menu-btn-close');
+    }
+  });
