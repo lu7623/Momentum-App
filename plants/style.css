@@ -803,6 +803,7 @@ line-height: 52px;
     top: 40px;
     right: 20px;
     z-index: 11;
+
   }
 
   .menu-btn {
@@ -1055,4 +1056,28 @@ height: 117px;
   }
 
 }
+@media (max-width: 379px){
+  .welcome-wrapper{
+    height: fit-content;
+  }
 
+  .service-wrapper {
+    width: fit-content;
+    padding: 0;
+    padding-bottom: 20px;
+}
+
+.service-title{
+  width: fit-content;
+  padding-left: 25px;
+}
+
+.service-buttons-container{
+  padding-left: 25px;
+}
+
+.contacts-wrapper{
+  padding:0;
+  padding-top: 24px;
+}
+}
