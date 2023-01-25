@@ -451,9 +451,6 @@ cursor: pointer;
 
 .select-city-container {
   margin-top: 94px;
-}
-
-select {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -475,6 +472,8 @@ select {
   background-position: calc(100% - 1.55em) 0.75em;
   background-size: 0.85em auto;
 }
+
+
 
 .footer-wrapper {
   width: 1222px;
@@ -533,6 +532,7 @@ select {
   font-weight: 700;
   transition: all 300ms ease-in-out;
 }
+
 .menu-btn {
   width: 40px;
 height: 24px;
@@ -609,7 +609,7 @@ color: #E06733;
 padding: 0;
 }
 
-p:last-of-type{
+.hour{
 color: #010201;
 font-family: 'Inter';
 font-style: normal;
@@ -832,11 +832,10 @@ line-height: 52px;
   .select-city-container {
     margin-top: 25px;
     margin-bottom: 214px;
-  }
-
-  select{
     margin-left: 0;
   }
+
+  
 
   .contacts-img{
     margin-left: 20px;
@@ -1055,35 +1054,40 @@ font-weight: 400;
   }
 
   .prices-contact-container {
-    margin: 0 0 12px 0;
+    margin:0;
     align-items: center;
     width: 230px;
 height: 126px;
 justify-content: center;
-
+margin-bottom: 15px;
   }
 
   .prices-text {
     font-size: 20px;
     line-height: 35px;
     text-align: center;
+    margin-bottom: 0;
   }
 
   .prices-check{
-    width: fit-content;
-    margin-bottom: 13px;
-    font-size: 15px;
-line-height: 20px;
-padding: 15px 30px;
-  }
-
-  .prices-check label {
-    padding: 0;
-  }
-
-  .prices-check-wrapper{
     width: 180px;
-    padding: 29px 0;
+padding: 0;
+margin-bottom: 14px;
+  }
+
+  .prices-check h3{
+    font-size: 15px;
+line-height: 20px;}
+
+  .prices-check:last-child{
+    margin-bottom: 0;
+  }
+
+  .arrow{
+    padding-right: 22px;
+  }
+  .price-text-open{
+    margin:0;
   }
 
   .button {
@@ -1095,7 +1099,7 @@ padding: 15px 30px;
 
   .prices-button{
     margin-bottom: 0;
-    margin-top: 15px;
+    margin-top: 13px;
   }
 
   .prices-title {
@@ -1108,12 +1112,13 @@ height: fit-content;
   }
 
   .prices-check-container {
-    display: flex;
-    width: 224px;
-    height: 235px;
-    margin: 0 0 18px 0;
-    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 28px 22px;
+    margin-top: 38px;
+    margin-bottom: 15px;
   }
+
 
   .contacts-wrapper {
     height: fit-content;
@@ -1135,14 +1140,12 @@ line-height: 35px;
   .select-city-container{
     margin-top: 80px;
     margin-bottom: 132px;
-  }
-
-  select {
-    width: 300px;
-    margin: 0;
+    width: 270px;
+    
     background-position: calc(100% - 1em) 0.85em;
   background-size: 0.85em auto;
   }
+
 
   .footer-wrapper {
     padding: 21px 85px 7px 85px;
