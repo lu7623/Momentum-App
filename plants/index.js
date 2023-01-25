@@ -4,8 +4,13 @@ let menu = document.querySelector('.menu');
 const a  = document.querySelectorAll('.nav-link');
 const closed =document.querySelector('.menu-btn-closed');
 menuBtn.addEventListener('click', function(){
-	menu.classList.toggle('menu-active');
-    menuBtn.classList.toggle('menu-btn-close');
+    if(!menuBtn.classList.contains('menu-btn-close')){
+	menu.classList.add('menu-active');
+    menuBtn.classList.add('menu-btn-close');}
+    else {
+        menu.classList.remove('menu-active');
+        menuBtn.classList.remove('menu-btn-close');}
+    
 });
 for (let link of a) {
 link.addEventListener('click', function(){
