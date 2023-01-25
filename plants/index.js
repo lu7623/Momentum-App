@@ -1,16 +1,14 @@
 //burger-menu
-let menuBtn = document.querySelector('.menu-btn');
-let menu = document.querySelector('.menu');
+const menuBtn = document.querySelector('.menu-btn');
+const menu = document.querySelector('.menu');
 const a  = document.querySelectorAll('.nav-link');
-const closed =document.querySelector('.menu-btn-closed');
-menuBtn.addEventListener('click', function(){
+
+menuBtn.addEventListener('mousedown', function(){
     if(!menuBtn.classList.contains('menu-btn-close')){
 	menu.classList.add('menu-active');
     menuBtn.classList.add('menu-btn-close');}
-    else {
-        menu.classList.remove('menu-active');
-        menuBtn.classList.remove('menu-btn-close');}
-    
+    else {menu.classList.remove('menu-active');
+    menuBtn.classList.remove('menu-btn-close');}
 });
 for (let link of a) {
 link.addEventListener('click', function(){
