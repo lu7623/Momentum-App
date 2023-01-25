@@ -125,7 +125,7 @@
             </div>
             <div class="card card-planting flex-container">
 
-              <div class="card-img"></div>
+              <div class="card-img "></div>
               <div class="card-text">
                 <h3 class="card-title">Planting</h3>
                 <p>Lorem Ipsum has been the industry</p>
@@ -133,7 +133,7 @@
             </div>
             <div class="card card-gardens flex-container">
 
-              <div class="card-img"></div>
+              <div class="card-img "></div>
               <div class="card-text">
                 <h3 class="card-title">Garden care</h3>
                 <p>Lorem Ipsum has been the industry</p>
@@ -154,38 +154,41 @@
           <div class="prices-container">
             <h2 class="prices-title title">Prices</h2>
             <div class="prices-check-container">
-              <div class="prices-check-wrapper">
-                <div class="prices-check">
-                  <input
-                    type="radio"
-                    id="basics"
-                    name="prices"
-                    value="basics"
-                  >
-                  <label for="basics">Basics</label>
-                  <img src="assets/btn-prices.svg" alt="arrow" >
+
+                <div class="prices-check flex-container"  id="basics" >
+                  
+                  <h3>Basics</h3>
+                  <div class="arrow " id="dropdown-basics"></div>
+                  <div class="price-text-closed" id="basics-text">
+                    <p>Release of Letraset sheets containing Lorem Ipsum passages, and more recently</p>
+                    <p><span>$15</span> / per hour</p>
+                    <button class="order">Order</button>
+
+                  </div>
                 </div>
-                <div class="prices-check">
-                  <input
-                    type="radio"
-                    id="standart"
-                    name="prices"
-                    value="standart"
-                  >
-                  <label for="standart">Standart</label>
-                  <img src="assets/btn-prices.svg" alt="arrow" >
+
+               
+                <div class="prices-check flex-container" id="standard">
+                  <h3>Standard</h3>
+                  <div class="arrow " id="dropdown-standard" ></div>
+                  <div class="price-text-closed" id="standard-text">
+                    <p>Release of Letraset sheets containing Lorem Ipsum passages, and more recently</p>
+                    <p><span>$25</span> / per hour</p>
+                    <button class="order">Order</button>
+                  </div>
                 </div>
-                <div class="prices-check">
-                  <input
-                    type="radio"
-                    id="pro-care"
-                    name="prices"
-                    value="pro-care"
-                  >
-                  <label for="pro-care">Pro care</label>
-                  <img src="assets/btn-prices.svg" alt="arrow" >
+
+                <div class="prices-check flex-container" id="procare" >
+                  <h3>Pro care</h3>
+                  <div class="arrow" id="dropdown-procare" > </div>
+                  <div class="price-text-closed" id="procare-text">
+                    <p>Release of Letraset sheets containing Lorem Ipsum passages, and more recently</p>
+                    <p><span>$35</span> / per hour</p>
+                    <button class="order">Order</button>
+
+                  </div>
                 </div>
-              </div>
+              
             </div>
           </div>
           <div class="prices-contact-container flex-container">
