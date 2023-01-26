@@ -239,3 +239,67 @@ order.forEach(el => el.addEventListener('click', function(){
 
 //Sity accordion
 
+const citySelect = document.querySelector('.city-btn');
+const cityOptions =  document.querySelector('.city-options');
+const drop =  document.getElementById('drop-city');
+citySelect.addEventListener('click', function(){
+cityOptions.classList.toggle('city-options-open');
+citySelect.classList.toggle('city-btn-open');
+drop.classList.toggle('dropdown-city-open');
+});
+
+const canandaigua = document.getElementById('canandaigua');
+const newyork =  document.getElementById('newyork');
+const yonkers =  document.getElementById('yonkers');
+const sherrill =  document.getElementById('sherrill');
+const city = document.getElementById('city');
+const sherrillAddress =  document.getElementById('sherrill-address');
+const newyorkAddress =  document.getElementById('newyork-address');
+const canandaiguaAddress =  document.getElementById('canandaigua-address');
+const yonkersAddress =  document.getElementById('yonkers-address');
+
+canandaigua.addEventListener('click', function(){
+    cityOptions.classList.remove('city-options-open');
+    city.textContent ='Canandaigua, NY';
+    drop.classList.remove('dropdown-city-open');
+    canandaiguaAddress.classList.add('address-open');
+});
+newyork.addEventListener('click', function(){
+    cityOptions.classList.remove('city-options-open');
+    city.textContent ='New York City';
+    drop.classList.remove('dropdown-city-open');
+    newyorkAddress.classList.add('address-open');
+});
+
+yonkers.addEventListener('click', function(){
+    cityOptions.classList.remove('city-options-open');
+    city.textContent ='Yonkers, NY';
+    drop.classList.remove('dropdown-city-open');
+    yonkersAddress.classList.add('address-open');
+});
+
+sherrill.addEventListener('click', function(){
+    cityOptions.classList.remove('city-options-open');
+    city.textContent ='Sherrill, NY';
+    drop.classList.remove('dropdown-city-open');
+    sherrillAddress.classList.add('address-open');
+});
+
+const yonkersCall = document.getElementById('call-yonkers');
+const newyorkCall = document.getElementById('call-newyork');
+const sherrillCall = document.getElementById('call-sherrill');
+const canandaiguaCall = document.getElementById('call-canandaigua');
+
+yonkersCall.addEventListener('click', function(){
+    window.open('tel:+19146780003');
+})
+sherrillCall.addEventListener('click', function(){
+    window.open('tel:+13159080004');
+})
+newyorkCall.addEventListener('click', function(){
+    window.open('tel:+12124560002');
+})
+canandaiguaCall.addEventListener('click', function(){
+    window.open('tel:+15853930001');
+})
+
