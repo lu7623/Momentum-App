@@ -453,12 +453,14 @@ cursor: pointer;
   height: 495px;
 }
 
+
 .select-city-container{
   margin-left: 10px;
 }
 
 .city-btn {
   margin-top: 94px;
+
   letter-spacing: 0.05em;
   border: none;
   color: #717171;
@@ -496,6 +498,8 @@ cursor: pointer;
   font-size: 20px;
   line-height: 40px;
 }
+
+
 
 .footer-wrapper {
   width: 1222px;
