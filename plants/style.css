@@ -390,6 +390,10 @@ cursor: pointer;
   justify-content: space-between;
 }
 
+.prices-check:last-child {
+  margin-bottom: 0;
+}
+
 .prices-check h3 {
   font-family: "Inter";
   font-style: normal;
@@ -466,12 +470,12 @@ cursor: pointer;
   padding-top: 5px;
   appearance: none;
   justify-content: space-between;
-  width: 450px;
+  width: 410px;
 }
 
 .dropdown-city{
   background-image: url("assets/accordion_btn.svg");
-  background-position: bottom 0px right 0px;
+  background-position: bottom 0px left 0px;
   width: 16px;
   height: 16px;
   background-repeat: no-repeat;
@@ -576,7 +580,7 @@ height: 24px;
 }
 
 .blur{
-  transition: all 400ms ease-in-out;
+  transition: all 200ms ease-in-out;
   filter: blur(4px);
 }
 
@@ -655,13 +659,12 @@ border: none;
   width: 450px;
 height: 234px;
 background: #DCE9D9;
-padding: 27px 50px 0px 26px;
 display: none;
 }
 
 .city-options ul{
   margin:0;
-  padding: 0;
+  padding: 27px 50px 31px 26px;
 }
 
 .city-options li{
@@ -669,12 +672,12 @@ display: none;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 40px;
+  line-height: 31px;
   letter-spacing: 0.05em;
   color: #499A18;
   list-style: none;
   border-bottom:  1px solid #D9D9D9;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .cities:hover{
@@ -684,7 +687,7 @@ display: none;
 }
 
 .city-options-open {
-  display: flex;
+  display: block;
 }
 
 .dropdown-city-open{
@@ -717,7 +720,7 @@ display: none;
 }
 
 .table-info{
-padding: 12px 90px 5px 33px;
+padding: 15px 90px 5px 33px;
 width: 100%;
 }
 
