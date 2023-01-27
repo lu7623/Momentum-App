@@ -390,6 +390,10 @@ cursor: pointer;
   justify-content: space-between;
 }
 
+.prices-check:last-child {
+  margin-bottom: 0;
+}
+
 .prices-check h3 {
   font-family: "Inter";
   font-style: normal;
@@ -449,17 +453,12 @@ cursor: pointer;
   height: 495px;
 }
 
-.select-city-container {
-  margin-top: 94px;
+.select-city-container{
+  margin-left: 10px;
 }
 
-select {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 40px;
-  margin-left: 10px;
+.city-btn {
+  margin-top: 94px;
   letter-spacing: 0.05em;
   border: none;
   color: #717171;
@@ -467,13 +466,35 @@ select {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 0px;
   height: 50px;
-  width: 450px;
   padding: 0 20px;
+  padding-top: 5px;
   appearance: none;
+  justify-content: space-between;
+  width: 410px;
+}
+
+.dropdown-city{
   background-image: url("assets/accordion_btn.svg");
+  background-position: bottom 0px left 0px;
+  width: 16px;
+  height: 16px;
   background-repeat: no-repeat;
-  background-position: calc(100% - 1.55em) 0.75em;
-  background-size: 0.85em auto;
+  padding-left: 20px;
+  padding-top: 15px;
+}
+
+.city-btn:hover {
+  background-color: #C1E698;
+border: 1px solid #D6E7D2;
+cursor: pointer;
+}
+
+.city-btn span {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 40px;
 }
 
 .footer-wrapper {
@@ -533,6 +554,7 @@ select {
   font-weight: 700;
   transition: all 300ms ease-in-out;
 }
+
 .menu-btn {
   width: 40px;
 height: 24px;
@@ -558,7 +580,7 @@ height: 24px;
 }
 
 .blur{
-  transition: all 400ms ease-in-out;
+  transition: all 200ms ease-in-out;
   filter: blur(4px);
 }
 
@@ -609,7 +631,7 @@ color: #E06733;
 padding: 0;
 }
 
-p:last-of-type{
+.hour{
 color: #010201;
 font-family: 'Inter';
 font-style: normal;
@@ -633,8 +655,110 @@ color: #717171;
 border: none;
 }
 
+.city-options {
+  width: 450px;
+height: 234px;
+background: #DCE9D9;
+display: none;
+}
 
+.city-options ul{
+  margin:0;
+  padding: 27px 50px 31px 26px;
+}
 
+.city-options li{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 31px;
+  letter-spacing: 0.05em;
+  color: #499A18;
+  list-style: none;
+  border-bottom:  1px solid #D9D9D9;
+  margin-bottom: 16px;
+}
+
+.cities:hover{
+  color: #717171;
+  border-bottom:  1px solid #717171;
+  cursor: pointer;
+}
+
+.city-options-open {
+  display: block;
+}
+
+.dropdown-city-open{
+  background-image: url('assets/accordion_btn-open.svg');
+}
+
+.city-btn-open{
+  background-color: #C1E698;
+  box-shadow: none;
+}
+
+.address{
+  box-sizing: border-box;
+width: 448px;
+height: 214px;
+background: #EDF2EC;
+border: 1px solid #000000;
+border-radius: 20px;
+justify-content: center;
+align-items: flex-start;
+padding-bottom: 20px;
+display: none;
+}
+
+.address-open {
+  display: flex;
+  position: relative;
+  top: 40px;
+  z-index: 3;
+}
+
+.table-info{
+padding: 15px 90px 5px 33px;
+width: 100%;
+}
+
+td{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 38px;
+  letter-spacing: 0.05em;
+} 
+
+td:nth-of-type(2n-1) {
+color: #000000;
+width: 129px;
+}
+
+td:nth-of-type(2n){
+color: #717171;
+}
+
+.call{
+  width: 122px;
+height: 26px;
+border: 1px solid #E06733;
+border-radius: 5px;
+font-family: 'Inika';
+font-style: normal;
+font-weight: 700;
+font-size: 10px;
+line-height: 13px;
+text-align: center;
+color: #717171;
+}
+
+.call:hover{
+  cursor: pointer;
+}
 
 @media (max-width: 1304px) {
   .header-wrapper {
@@ -829,14 +953,13 @@ line-height: 52px;
     order: 1;
   }
 
-  .select-city-container {
+  .city-btn{
     margin-top: 25px;
     margin-bottom: 214px;
-  }
-
-  select{
     margin-left: 0;
   }
+
+  
 
   .contacts-img{
     margin-left: 20px;
@@ -1055,35 +1178,40 @@ font-weight: 400;
   }
 
   .prices-contact-container {
-    margin: 0 0 12px 0;
+    margin:0;
     align-items: center;
     width: 230px;
 height: 126px;
 justify-content: center;
-
+margin-bottom: 15px;
   }
 
   .prices-text {
     font-size: 20px;
     line-height: 35px;
     text-align: center;
+    margin-bottom: 0;
   }
 
   .prices-check{
-    width: fit-content;
-    margin-bottom: 13px;
-    font-size: 15px;
-line-height: 20px;
-padding: 15px 30px;
-  }
-
-  .prices-check label {
-    padding: 0;
-  }
-
-  .prices-check-wrapper{
     width: 180px;
-    padding: 29px 0;
+padding: 0;
+margin-bottom: 14px;
+  }
+
+  .prices-check h3{
+    font-size: 15px;
+line-height: 20px;}
+
+  .prices-check:last-child{
+    margin-bottom: 0;
+  }
+
+  .arrow{
+    padding-right: 22px;
+  }
+  .price-text-open{
+    margin:0;
   }
 
   .button {
@@ -1095,7 +1223,7 @@ padding: 15px 30px;
 
   .prices-button{
     margin-bottom: 0;
-    margin-top: 15px;
+    margin-top: 13px;
   }
 
   .prices-title {
@@ -1108,12 +1236,13 @@ height: fit-content;
   }
 
   .prices-check-container {
-    display: flex;
-    width: 224px;
-    height: 235px;
-    margin: 0 0 18px 0;
-    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 28px 22px;
+    margin-top: 38px;
+    margin-bottom: 15px;
   }
+
 
   .contacts-wrapper {
     height: fit-content;
@@ -1132,17 +1261,15 @@ margin: 0;
 line-height: 35px;
   }
 
-  .select-city-container{
+  .city-btn{
     margin-top: 80px;
     margin-bottom: 132px;
-  }
-
-  select {
-    width: 300px;
-    margin: 0;
+    width: 270px;
+    
     background-position: calc(100% - 1em) 0.85em;
   background-size: 0.85em auto;
   }
+
 
   .footer-wrapper {
     padding: 21px 85px 7px 85px;

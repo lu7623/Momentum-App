@@ -21,12 +21,12 @@
           <img class="logo" src="assets/logo_vector.svg" alt="plants logo" >
           <span>Plants</span>
         </div>
-  <button class="menu-btn close">
+  <div class="menu-btn close">
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-  </button>
+  </div>
         <nav class="flex-container menu">
  
 
@@ -161,7 +161,7 @@
                   <div class="arrow " id="dropdown-basics"></div>
                   <div class="price-text-closed" id="basics-text">
                     <p>Release of Letraset sheets containing Lorem Ipsum passages, and more recently</p>
-                    <p><span>$15</span> / per hour</p>
+                    <p class="hour"><span>$15</span> / per hour</p>
                     <button class="order">Order</button>
 
                   </div>
@@ -173,7 +173,7 @@
                   <div class="arrow " id="dropdown-standard" ></div>
                   <div class="price-text-closed" id="standard-text">
                     <p>Release of Letraset sheets containing Lorem Ipsum passages, and more recently</p>
-                    <p><span>$25</span> / per hour</p>
+                    <p class="hour"><span>$25</span> / per hour</p>
                     <button class="order">Order</button>
                   </div>
                 </div>
@@ -183,7 +183,7 @@
                   <div class="arrow" id="dropdown-procare" > </div>
                   <div class="price-text-closed" id="procare-text">
                     <p>Release of Letraset sheets containing Lorem Ipsum passages, and more recently</p>
-                    <p><span>$35</span> / per hour</p>
+                    <p class="hour"><span>$35</span> / per hour</p>
                     <button class="order">Order</button>
 
                   </div>
@@ -213,15 +213,87 @@
           >
           <h2 class="contacts-title title">Contact us</h2>
           <div class="select-city-container">
-            <label for="city-select"></label>
-            <select name="city" id="city-select">
-              <option value="">City</option>
-              <option value="city1">Canandaigua, NY</option>
-              <option value="city2">New York City</option>
-              <option value="city3">Yonkers, NY</option>
-              <option value="city4">Sherrill, NY</option>
-            </select>
-          </div>
+            <div class="city-btn flex-container">
+              <span id="city">City</span> <div id='drop-city' class="dropdown-city"></div>
+             </div>
+            <div class="city-options">
+               <ul>
+                 <li class="cities" id="canandaigua">Canandaigua, NY</li>
+                 <li class="cities" id="newyork">New York City</li>
+                 <li class="cities" id="yonkers">Yonkers, NY</li>
+                 <li class="cities" id="sherrill">Sherrill, NY</li>
+               </ul>
+             </div>
+             <div class="address flex-container" id="yonkers-address">
+                   <table class="table-info">
+                    <tr>
+                      <td>City:</td>
+                      <td>Yonkers, NY</td>
+                    </tr>
+                    <tr>
+                      <td>Phone:</td>
+                      <td>+1	914	678 0003</td>
+                    </tr>
+                    <tr>
+                      <td>Office adress:</td>
+                      <td>511 Warburton Ave</td>
+                    </tr>
+                   </table>
+                   <button class="call" id="call-yonkers">Call Us</button>
+             </div>
+             <div class="address flex-container" id="sherrill-address">
+              <table class="table-info">
+                <tr>
+                  <td>City:</td>
+                  <td>Sherrill, NY</td>
+                </tr>
+                <tr>
+                  <td>Phone:</td>
+                  <td>+1	315	908 0004</td>
+                </tr>
+                <tr>
+                  <td>Office adress:</td>
+                  <td>14 WEST Noyes BLVD</td>
+                </tr>
+               </table>
+               <button class="call" id="call-sherrill">Call Us</button>
+             </div>
+             <div class="address flex-container" id="newyork-address">
+              <table class="table-info">
+                <tr>
+                  <td>City:</td>
+                  <td>New York City</td>
+                </tr>
+                <tr>
+                  <td>Phone:</td>
+                  <td>+1	212	456 0002</td>
+                </tr>
+                <tr>
+                  <td>Office adress:</td>
+                  <td>9 East 91st Street</td>
+                </tr>
+               </table>
+               <button class="call" id="call-newyork">Call Us</button>
+             </div>
+             <div class="address flex-container" id="canandaigua-address">
+              <table class="table-info">
+                <tr>
+                  <td>City:</td>
+                  <td>Canandaigua, NY</td>
+                </tr>
+                <tr>
+                  <td>Phone:</td>
+                  <td>+1	585	393 0001</td>
+                </tr>
+                <tr>
+                  <td>Office adress:</td>
+                  <td>151 Charlotte Street</td>
+                </tr>
+               </table>
+               <button class="call" id="call-canandaigua">Call Us</button>
+
+             </div>
+        </div>
         </div>
       </section>
     </main>

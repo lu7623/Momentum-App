@@ -1,11 +1,14 @@
 //burger-menu
-let menuBtn = document.querySelector('.menu-btn');
-let menu = document.querySelector('.menu');
+const menuBtn = document.querySelector('.menu-btn');
+const menu = document.querySelector('.menu');
 const a  = document.querySelectorAll('.nav-link');
-const closed =document.querySelector('.menu-btn-closed');
-menuBtn.addEventListener('click', function(){
-	menu.classList.toggle('menu-active');
-    menuBtn.classList.toggle('menu-btn-close');
+
+menuBtn.addEventListener('mousedown', function(){
+    if(!menuBtn.classList.contains('menu-btn-close')){
+	menu.classList.add('menu-active');
+    menuBtn.classList.add('menu-btn-close');}
+    else {menu.classList.remove('menu-active');
+    menuBtn.classList.remove('menu-btn-close');}
 });
 for (let link of a) {
 link.addEventListener('click', function(){
@@ -36,37 +39,47 @@ document.addEventListener('click', function(e) {
     if ((!btnGardens.classList.contains('service-button-clicked')) && (!btnPlanting.classList.contains('service-button-clicked')) && (!btnLawn.classList.contains('service-button-clicked'))){
 
         btnGardens.classList.add('service-button-clicked');
+        setTimeout(() =>{
     for (let card of cardPlanting) {
 	card.classList.add('blur');}
     for (let card of cardLawn) {
         card.classList.add('blur');}
+    },300)
     }
 
     else if ((!btnGardens.classList.contains('service-button-clicked')) && (btnPlanting.classList.contains('service-button-clicked')) && (!btnLawn.classList.contains('service-button-clicked'))){
  btnGardens.classList.add('service-button-clicked');
+ setTimeout(() =>{
     for (let card of cardGardens) {
         card.classList.remove('blur');}
+    },300)
     }
 
     else if ((!btnGardens.classList.contains('service-button-clicked')) && (!btnPlanting.classList.contains('service-button-clicked')) && (btnLawn.classList.contains('service-button-clicked'))){
         btnGardens.classList.add('service-button-clicked');
+        setTimeout(() =>{
            for (let card of cardGardens) {
                card.classList.remove('blur');}
+            },300)
            }
 
     else if ((!btnGardens.classList.contains('service-button-clicked')) && (btnPlanting.classList.contains('service-button-clicked')) && (btnLawn.classList.contains('service-button-clicked'))){
             btnPlanting.classList.remove('service-button-clicked');
             btnLawn.classList.remove('service-button-clicked');
+            setTimeout(() =>{
                for (let card of cardGardens) {
                    card.classList.remove('blur');}
+                },300)
                }
 
      else if (btnGardens.classList.contains('service-button-clicked')){
         btnGardens.classList.remove('service-button-clicked');
+        setTimeout(() =>{
         for (let card of cardPlanting) {
             card.classList.remove('blur');}
             for (let card of cardLawn) {
                 card.classList.remove('blur');}
+            },300)
      }
     
 });
@@ -75,39 +88,49 @@ document.addEventListener('click', function(e) {
 btnLawn.addEventListener('click', function(){
     
     if ((!btnLawn.classList.contains('service-button-clicked')) && (!btnPlanting.classList.contains('service-button-clicked')) && (!btnGardens.classList.contains('service-button-clicked'))){
-
+setTimeout(() =>{
         btnLawn.classList.add('service-button-clicked');
     for (let card of cardPlanting) {
 	card.classList.add('blur');}
     for (let card of cardGardens) {
         card.classList.add('blur');}
+    },300)
     }
+
 
     else if ((!btnLawn.classList.contains('service-button-clicked')) && (btnPlanting.classList.contains('service-button-clicked')) && (!btnGardens.classList.contains('service-button-clicked'))){
  btnLawn.classList.add('service-button-clicked');
+ setTimeout(() =>{
     for (let card of cardLawn ) {
         card.classList.remove('blur');}
+    },300)
     }
 
     else if ((!btnLawn.classList.contains('service-button-clicked')) && (!btnPlanting.classList.contains('service-button-clicked')) && (btnGardens.classList.contains('service-button-clicked'))){
         btnLawn.classList.add('service-button-clicked');
+        setTimeout(() =>{
            for (let card of cardLawn) {
                card.classList.remove('blur');}
+            },300) 
            }
 
     else if ((!btnLawn.classList.contains('service-button-clicked')) && (btnGardens.classList.contains('service-button-clicked')) && (btnPlanting.classList.contains('service-button-clicked'))){
             btnPlanting.classList.remove('service-button-clicked');
             btnGardens.classList.remove('service-button-clicked');
+            setTimeout(() =>{
                for (let card of cardLawn) {
                    card.classList.remove('blur');}
+                },300)
                }
 
      else if (btnLawn.classList.contains('service-button-clicked')){
         btnLawn.classList.remove('service-button-clicked');
+        setTimeout(() =>{
         for (let card of cardPlanting) {
             card.classList.remove('blur');}
             for (let card of cardGardens) {
                 card.classList.remove('blur');}
+            },300)
      }
     
 });
@@ -117,37 +140,47 @@ btnPlanting.addEventListener('click', function(){
     if ((!btnPlanting.classList.contains('service-button-clicked')) && (!btnLawn.classList.contains('service-button-clicked')) && (!btnGardens.classList.contains('service-button-clicked'))){
 
         btnPlanting.classList.add('service-button-clicked');
+        setTimeout(() =>{
     for (let card of cardLawn) {
 	card.classList.add('blur');}
     for (let card of cardGardens) {
         card.classList.add('blur');}
+    },300)
     }
 
     else if ((!btnPlanting.classList.contains('service-button-clicked')) && (btnLawn.classList.contains('service-button-clicked')) && (!btnGardens.classList.contains('service-button-clicked'))){
  btnPlanting.classList.add('service-button-clicked');
+ setTimeout(() =>{
     for (let card of cardPlanting ) {
         card.classList.remove('blur');}
+    },300)
     }
 
     else if ((!btnPlanting.classList.contains('service-button-clicked')) && (!btnLawn.classList.contains('service-button-clicked')) && (btnGardens.classList.contains('service-button-clicked'))){
         btnPlanting.classList.add('service-button-clicked');
+        setTimeout(() =>{
            for (let card of cardPlanting) {
                card.classList.remove('blur');}
+            },300)
            }
 
     else if ((!btnPlanting.classList.contains('service-button-clicked')) && (btnGardens.classList.contains('service-button-clicked')) && (btnLawn.classList.contains('service-button-clicked'))){
             btnLawn.classList.remove('service-button-clicked');
             btnGardens.classList.remove('service-button-clicked');
+            setTimeout(() =>{
                for (let card of cardPlanting) {
                    card.classList.remove('blur');}
+                },300)
                }
 
      else if (btnPlanting.classList.contains('service-button-clicked')){
         btnPlanting.classList.remove('service-button-clicked');
+        setTimeout(() =>{
         for (let card of cardLawn) {
             card.classList.remove('blur');}
             for (let card of cardGardens) {
                 card.classList.remove('blur');}
+            },300)
      }
     
 });
@@ -234,5 +267,83 @@ let order = document.querySelectorAll('.order');
 order.forEach(el => el.addEventListener('click', function(){
             window.location ='#contacts'}));
 
-//Sity accordion
+//City accordion
+
+const citySelect = document.querySelector('.city-btn');
+const cityOptions =  document.querySelector('.city-options');
+const drop =  document.getElementById('drop-city');
+const address = document.querySelectorAll('.address');
+
+citySelect.addEventListener('click', function(){
+cityOptions.classList.toggle('city-options-open');
+citySelect.classList.add('city-btn-open');
+drop.classList.toggle('dropdown-city-open');
+for (let adcity of address) {
+if ( adcity.classList.contains('address-open')){
+    adcity.classList.remove('address-open');}
+}
+});
+
+const canandaigua = document.getElementById('canandaigua');
+const newyork =  document.getElementById('newyork');
+const yonkers =  document.getElementById('yonkers');
+const sherrill =  document.getElementById('sherrill');
+const city = document.getElementById('city');
+const sherrillAddress =  document.getElementById('sherrill-address');
+const newyorkAddress =  document.getElementById('newyork-address');
+const canandaiguaAddress =  document.getElementById('canandaigua-address');
+const yonkersAddress =  document.getElementById('yonkers-address');
+
+canandaigua.addEventListener('click', function(){
+    setTimeout(() =>{
+    cityOptions.classList.remove('city-options-open');
+    city.textContent ='Canandaigua, NY';
+    drop.classList.remove('dropdown-city-open');
+    canandaiguaAddress.classList.add('address-open');
+    },300);
+});
+newyork.addEventListener('click', function(){
+    setTimeout(() =>{
+    cityOptions.classList.remove('city-options-open');
+    city.textContent ='New York City';
+    drop.classList.remove('dropdown-city-open');
+    newyorkAddress.classList.add('address-open');
+},300);
+});
+
+yonkers.addEventListener('click', function(){
+    setTimeout(() =>{
+    cityOptions.classList.remove('city-options-open');
+    city.textContent ='Yonkers, NY';
+    drop.classList.remove('dropdown-city-open');
+    yonkersAddress.classList.add('address-open');
+},300);
+});
+
+sherrill.addEventListener('click', function(){
+    setTimeout(() =>{
+    cityOptions.classList.remove('city-options-open');
+    city.textContent ='Sherrill, NY';
+    drop.classList.remove('dropdown-city-open');
+    sherrillAddress.classList.add('address-open');
+},300);
+});
+
+const yonkersCall = document.getElementById('call-yonkers');
+const newyorkCall = document.getElementById('call-newyork');
+const sherrillCall = document.getElementById('call-sherrill');
+const canandaiguaCall = document.getElementById('call-canandaigua');
+
+yonkersCall.addEventListener('click', function(){
+    window.open('tel:+19146780003');
+})
+sherrillCall.addEventListener('click', function(){
+    window.open('tel:+13159080004');
+})
+newyorkCall.addEventListener('click', function(){
+    window.open('tel:+12124560002');
+})
+canandaiguaCall.addEventListener('click', function(){
+    window.open('tel:+15853930001');
+})
 
