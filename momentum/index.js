@@ -34,15 +34,16 @@ return hours;
   }
 
  function getTimeOfDay(time) {
-    if (time < 6) return 'Good night, ';
-    else if (time < 12) return 'Good morning, ';
-    else if (time < 18) return 'Good afternoon, ';
-    else return 'Good evening, ';
+    if (time < 6) return 'nigth';
+    else if (time < 12) return 'morning';
+    else if (time < 18) return 'afternoon';
+    else return 'evening';
  }
 
  function showGreeting() {
    let time = getHours(); 
-    greeting.textContent = getTimeOfDay(time) ;
+   let n = getTimeOfDay(time);
+    greeting.textContent = `Good ${n},` ;
   }
 
  
@@ -60,4 +61,51 @@ return hours;
 
 
   showTime();
+
+  //backgroung image
   
+const body = document.querySelector('body');
+const slideNext = document.querySelector('.slide-next');
+const slidePrev = document.querySelector('.slide-prev');
+ 
+let randomNum;
+
+  function getRandomNum() {
+    randomNum = Math.ceil(Math.random()*20);
+  }
+  getRandomNum();
+  
+  function setBg() {
+    const img = new Image();
+    let time = getHours(); 
+    let timeOfDay = getTimeOfDay(time);
+    let bgNum = String(randomNum).padStart(2,0);
+    img.src = `https://raw.githubusercontent.com/lu7623/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg`;
+  img.onload = () => {      
+    body.style.backgroundImage = `url('https://raw.githubusercontent.com/lu7623/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg')`;
+  }; 
+   console.log(randomNum);
+  }
+  setBg();
+
+  function getSlideNext(){
+    if (randomNum < 20) { 
+        randomNum +=1;  
+    } else {
+        randomNum = 1;
+    }
+    setBg();
+  }
+
+  slideNext.addEventListener('click', getSlideNext);
+
+  function getSlidePrev(){
+    if (randomNum > 1) { 
+        randomNum -=1;  
+    } else {
+        randomNum = 20;
+    }
+    setBg();
+  }
+
+  slidePrev.addEventListener('click', getSlidePrev);
