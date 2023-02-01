@@ -93,10 +93,27 @@ function onclick(x, y, z) {
     y.btn.classList.remove("service-button-clicked");
     z.btn.classList.remove("service-button-clicked");
     removeBlur(x);
-  } else if (x.btn.classList.contains("service-button-clicked")) {
+  } else if (
+    x.btn.classList.contains("service-button-clicked") &&
+    !y.btn.classList.contains("service-button-clicked") &&
+    !z.btn.classList.contains("service-button-clicked")) {
     x.btn.classList.remove("service-button-clicked");
     removeBlur(y);
     removeBlur(z);
+  }
+  else if (
+    x.btn.classList.contains("service-button-clicked") &&
+    y.btn.classList.contains("service-button-clicked") &&
+    !z.btn.classList.contains("service-button-clicked")) {
+    x.btn.classList.remove("service-button-clicked");
+    addBlur(x);
+  }
+  else if (
+    x.btn.classList.contains("service-button-clicked") &&
+    !y.btn.classList.contains("service-button-clicked") &&
+    z.btn.classList.contains("service-button-clicked")) {
+    x.btn.classList.remove("service-button-clicked");
+    addBlur(x);
   }
 }
 

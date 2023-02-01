@@ -212,6 +212,7 @@ body {
   font-size: 20px;
   line-height: 26px;
   color: #e06733;
+  background-color: #edf2ec;
 }
 
 .service-buttons-container {
@@ -948,7 +949,6 @@ td:nth-of-type(2n) {
 
   .city-btn {
     margin-top: 25px;
-    margin-bottom: 20px;
     margin-left: 0;
   }
 
