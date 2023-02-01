@@ -934,9 +934,10 @@ color: #717171;
     padding: 0 50px 0 50px;
     flex-direction: column;
     justify-content: space-between;
-    height: 739px;
+    min-height: 739px;
     align-items: center;
   }
+
   .contacts-title {
     font-size: 40px;
 line-height: 52px;
@@ -955,10 +956,17 @@ line-height: 52px;
 
   .city-btn{
     margin-top: 25px;
-    margin-bottom: 214px;
-    margin-left: 0;
+    margin-bottom: 20px;
+        margin-left: 0;
   }
 
+.select-city-container{
+  min-height: 300px;
+}
+
+  .address{
+    margin-bottom: 50px;
+  }
   
 
   .contacts-img{
@@ -987,6 +995,7 @@ line-height: 52px;
   .header {
     height: auto;
   }
+
   .header-wrapper {
     height: fit-content;
     padding: 36px 25px;
@@ -1210,8 +1219,11 @@ line-height: 20px;}
   .arrow{
     padding-right: 22px;
   }
+
   .price-text-open{
     margin:0;
+    width: 140px;
+    margin-left: 20px;
   }
 
   .button {
@@ -1248,6 +1260,7 @@ height: fit-content;
     height: fit-content;
     padding-bottom: 0;
     justify-content: flex-start;
+    min-height: auto;
   }
 
   .contacts-img {
@@ -1262,14 +1275,47 @@ line-height: 35px;
   }
 
   .city-btn{
-    margin-top: 80px;
-    margin-bottom: 132px;
-    width: 270px;
-    
+    margin-top: 40px;
+    margin-bottom: 0;
+    width: 260px; 
     background-position: calc(100% - 1em) 0.85em;
   background-size: 0.85em auto;
   }
 
+  .dropdown-city {
+padding-left: 0;
+  }
+
+  .city-options{
+    width: 300px;
+    margin-bottom: 30px;
+  }
+
+  .address-open{
+    width: 282px;
+    height: 212px;
+    top: 0px;
+    left: 7px;
+    margin-bottom: 30px;
+    margin-top: 45px;
+  }
+
+  td:nth-of-type(2n-1) {
+    width: 65px;
+  }
+
+  td {
+    padding-bottom: 15px;
+    line-height: 16px;
+  }
+
+  tr:last-child{
+    padding-bottom: 0;
+  }
+
+  .table-info{
+    padding: 30px 30px 10px 30px;
+  }
 
   .footer-wrapper {
     padding: 21px 85px 7px 85px;
