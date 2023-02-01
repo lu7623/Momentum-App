@@ -200,66 +200,73 @@ if ( adcity.classList.contains('address-open')){
 }
 });
 
-const canandaigua = document.getElementById('canandaigua');
-const newyork =  document.getElementById('newyork');
-const yonkers =  document.getElementById('yonkers');
-const sherrill =  document.getElementById('sherrill');
+
+const canandaigua = {
+    btn: document.getElementById('canandaigua'),
+    address:  document.getElementById('canandaigua-address'),
+    call: document.getElementById('call-canandaigua'),
+    text: 'Canandaigua, NY',
+    phone: 'tel:+15853930001'
+}
+
+const newyork = {
+  btn:  document.getElementById('newyork'),
+  address: document.getElementById('newyork-address'),
+  call: document.getElementById('call-newyork'),
+  text: 'New York City',
+  phone: 'tel:+12124560002'
+}
+
+const yonkers = {
+    btn: document.getElementById('yonkers'),
+    address: document.getElementById('yonkers-address'),
+    call: document.getElementById('call-yonkers'),
+    text: 'Yonkers, NY',
+    phone: 'tel:+19146780003'
+}
+
+const sherrill = {
+    btn: document.getElementById('sherrill'),
+    address: document.getElementById('sherrill-address'),
+    call:  document.getElementById('call-sherrill'),
+    text: 'Sherrill, NY',
+    phone: 'tel:+13159080004'
+}
+
 const city = document.getElementById('city');
-const sherrillAddress =  document.getElementById('sherrill-address');
-const newyorkAddress =  document.getElementById('newyork-address');
-const canandaiguaAddress =  document.getElementById('canandaigua-address');
-const yonkersAddress =  document.getElementById('yonkers-address');
 
-canandaigua.addEventListener('click', function(){
-    setTimeout(() =>{
+function chooseCity (x) {
+setTimeout(() =>{
     cityOptions.classList.remove('city-options-open');
-    city.textContent ='Canandaigua, NY';
+    city.textContent = x.text;
     drop.classList.remove('dropdown-city-open');
-    canandaiguaAddress.classList.add('address-open');
+    x.address.classList.add('address-open');
     },300);
-});
-newyork.addEventListener('click', function(){
-    setTimeout(() =>{
-    cityOptions.classList.remove('city-options-open');
-    city.textContent ='New York City';
-    drop.classList.remove('dropdown-city-open');
-    newyorkAddress.classList.add('address-open');
-},300);
-});
+}
 
-yonkers.addEventListener('click', function(){
-    setTimeout(() =>{
-    cityOptions.classList.remove('city-options-open');
-    city.textContent ='Yonkers, NY';
-    drop.classList.remove('dropdown-city-open');
-    yonkersAddress.classList.add('address-open');
-},300);
-});
+canandaigua.btn.addEventListener('click', function(){
+    chooseCity (canandaigua);
+    });
+newyork.btn.addEventListener('click', function(){
+   chooseCity (newyork);
+    });
+yonkers.btn.addEventListener('click', function(){
+    chooseCity (yonkers);
+     });
+sherrill.btn.addEventListener('click', function(){
+    chooseCity (sherrill);
+    });
 
-sherrill.addEventListener('click', function(){
-    setTimeout(() =>{
-    cityOptions.classList.remove('city-options-open');
-    city.textContent ='Sherrill, NY';
-    drop.classList.remove('dropdown-city-open');
-    sherrillAddress.classList.add('address-open');
-},300);
-});
 
-const yonkersCall = document.getElementById('call-yonkers');
-const newyorkCall = document.getElementById('call-newyork');
-const sherrillCall = document.getElementById('call-sherrill');
-const canandaiguaCall = document.getElementById('call-canandaigua');
-
-yonkersCall.addEventListener('click', function(){
-    window.open('tel:+19146780003');
-})
-sherrillCall.addEventListener('click', function(){
-    window.open('tel:+13159080004');
-})
-newyorkCall.addEventListener('click', function(){
-    window.open('tel:+12124560002');
-})
-canandaiguaCall.addEventListener('click', function(){
-    window.open('tel:+15853930001');
-})
-
+canandaigua.call.addEventListener('click', function(){
+        window.open(canandaigua.phone);
+       });
+newyork.call.addEventListener('click', function(){
+        window.open(newyork.phone);
+       });      
+yonkers.call.addEventListener('click', function(){
+         window.open(yonkers.phone);
+        });
+sherrill.call.addEventListener('click', function(){
+            window.open(sherrill.phone);
+        })
