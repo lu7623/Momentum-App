@@ -126,25 +126,29 @@ const procare = {
   dropdown: document.getElementById("dropdown-procare"),
 };
 
+function priceOpen(n) {
+  n.price.classList.add("price-open");
+  n.text.classList.add("price-text-open");
+  n.dropdown.classList.add("arrow-open");
+}
+
+function priceClose(n) {
+  n.price.classList.remove("price-open");
+  n.text.classList.remove("price-text-open");
+  n.dropdown.classList.remove("arrow-open");
+}
+
 function choosePrice(x, y, z) {
   if (!x.price.classList.contains("price-open")) {
-    x.price.classList.add("price-open");
-    x.text.classList.add("price-text-open");
-    x.dropdown.classList.add("arrow-open");
+    priceOpen(x);
   } else {
-    x.price.classList.remove("price-open");
-    x.text.classList.remove("price-text-open");
-    x.dropdown.classList.remove("arrow-open");
+    priceClose(x);
   }
   if (y.price.classList.contains("price-open")) {
-    y.price.classList.remove("price-open");
-    y.text.classList.remove("price-text-open");
-    y.dropdown.classList.remove("arrow-open");
+    priceClose(y);
   }
   if (z.price.classList.contains("price-open")) {
-    z.price.classList.remove("price-open");
-    z.text.classList.remove("price-text-open");
-    z.dropdown.classList.remove("arrow-open");
+    priceClose(z);
   }
 }
 
