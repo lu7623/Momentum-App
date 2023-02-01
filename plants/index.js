@@ -63,55 +63,32 @@ function addBlur(n) {
 }
 
 function onclick(x, y, z) {
-  if (
-    !x.btn.classList.contains("service-button-clicked") &&
-    !y.btn.classList.contains("service-button-clicked") &&
-    !z.btn.classList.contains("service-button-clicked")
-  ) {
+  let xBtnActive = x.btn.classList.contains("service-button-clicked");
+  let yBtnActive = y.btn.classList.contains("service-button-clicked");
+  let zBtnActive = z.btn.classList.contains("service-button-clicked");
+
+  if (xBtnActive == false && yBtnActive == false && zBtnActive == false) {
     x.btn.classList.add("service-button-clicked");
     addBlur(y);
     addBlur(z);
-  } else if (
-    !x.btn.classList.contains("service-button-clicked") &&
-    y.btn.classList.contains("service-button-clicked") &&
-    !z.btn.classList.contains("service-button-clicked")
-  ) {
+  } else if (xBtnActive == false && yBtnActive == true && zBtnActive == false) {
     x.btn.classList.add("service-button-clicked");
     removeBlur(x);
-  } else if (
-    !x.btn.classList.contains("service-button-clicked") &&
-    !y.btn.classList.contains("service-button-clicked") &&
-    z.btn.classList.contains("service-button-clicked")
-  ) {
+  } else if (xBtnActive == false && yBtnActive == false && zBtnActive == true) {
     x.btn.classList.add("service-button-clicked");
     removeBlur(x);
-  } else if (
-    !x.btn.classList.contains("service-button-clicked") &&
-    y.btn.classList.contains("service-button-clicked") &&
-    z.btn.classList.contains("service-button-clicked")
-  ) {
+  } else if (xBtnActive == false && yBtnActive == true && zBtnActive == true) {
     y.btn.classList.remove("service-button-clicked");
     z.btn.classList.remove("service-button-clicked");
     removeBlur(x);
-  } else if (
-    x.btn.classList.contains("service-button-clicked") &&
-    !y.btn.classList.contains("service-button-clicked") &&
-    !z.btn.classList.contains("service-button-clicked")) {
+  } else if (xBtnActive == true && yBtnActive == false && zBtnActive == false) {
     x.btn.classList.remove("service-button-clicked");
     removeBlur(y);
     removeBlur(z);
-  }
-  else if (
-    x.btn.classList.contains("service-button-clicked") &&
-    y.btn.classList.contains("service-button-clicked") &&
-    !z.btn.classList.contains("service-button-clicked")) {
+  } else if (xBtnActive == true && yBtnActive == true && zBtnActive == false) {
     x.btn.classList.remove("service-button-clicked");
     addBlur(x);
-  }
-  else if (
-    x.btn.classList.contains("service-button-clicked") &&
-    !y.btn.classList.contains("service-button-clicked") &&
-    z.btn.classList.contains("service-button-clicked")) {
+  } else if (xBtnActive == true && yBtnActive == false && zBtnActive == true) {
     x.btn.classList.remove("service-button-clicked");
     addBlur(x);
   }
@@ -149,25 +126,29 @@ const procare = {
   dropdown: document.getElementById("dropdown-procare"),
 };
 
+function priceOpen(n) {
+  n.price.classList.add("price-open");
+  n.text.classList.add("price-text-open");
+  n.dropdown.classList.add("arrow-open");
+}
+
+function priceClose(n) {
+  n.price.classList.remove("price-open");
+  n.text.classList.remove("price-text-open");
+  n.dropdown.classList.remove("arrow-open");
+}
+
 function choosePrice(x, y, z) {
   if (!x.price.classList.contains("price-open")) {
-    x.price.classList.add("price-open");
-    x.text.classList.add("price-text-open");
-    x.dropdown.classList.add("arrow-open");
+    priceOpen(x);
   } else {
-    x.price.classList.remove("price-open");
-    x.text.classList.remove("price-text-open");
-    x.dropdown.classList.remove("arrow-open");
+    priceClose(x);
   }
   if (y.price.classList.contains("price-open")) {
-    y.price.classList.remove("price-open");
-    y.text.classList.remove("price-text-open");
-    y.dropdown.classList.remove("arrow-open");
+    priceClose(y);
   }
   if (z.price.classList.contains("price-open")) {
-    z.price.classList.remove("price-open");
-    z.text.classList.remove("price-text-open");
-    z.dropdown.classList.remove("arrow-open");
+    priceClose(z);
   }
 }
 
