@@ -77,8 +77,7 @@ function onclick(x, y, z) {
   } else if (xBtnActive == false && yBtnActive == false && zBtnActive == true) {
     x.btn.classList.add("service-button-clicked");
     removeBlur(x);
-  }
-   else if (xBtnActive == true && yBtnActive == false && zBtnActive == false) {
+  } else if (xBtnActive == true && yBtnActive == false && zBtnActive == false) {
     x.btn.classList.remove("service-button-clicked");
     removeBlur(y);
     removeBlur(z);
@@ -236,5 +235,3 @@ cities.forEach((el) => {
     window.open(el.phone);
   });
 });
-
-
