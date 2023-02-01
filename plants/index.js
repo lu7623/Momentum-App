@@ -63,55 +63,32 @@ function addBlur(n) {
 }
 
 function onclick(x, y, z) {
-  if (
-    !x.btn.classList.contains("service-button-clicked") &&
-    !y.btn.classList.contains("service-button-clicked") &&
-    !z.btn.classList.contains("service-button-clicked")
-  ) {
+  let xBtnActive = x.btn.classList.contains("service-button-clicked");
+  let yBtnActive = y.btn.classList.contains("service-button-clicked");
+  let zBtnActive = z.btn.classList.contains("service-button-clicked");
+
+  if (xBtnActive == false && yBtnActive == false && zBtnActive == false) {
     x.btn.classList.add("service-button-clicked");
     addBlur(y);
     addBlur(z);
-  } else if (
-    !x.btn.classList.contains("service-button-clicked") &&
-    y.btn.classList.contains("service-button-clicked") &&
-    !z.btn.classList.contains("service-button-clicked")
-  ) {
+  } else if (xBtnActive == false && yBtnActive == true && zBtnActive == false) {
     x.btn.classList.add("service-button-clicked");
     removeBlur(x);
-  } else if (
-    !x.btn.classList.contains("service-button-clicked") &&
-    !y.btn.classList.contains("service-button-clicked") &&
-    z.btn.classList.contains("service-button-clicked")
-  ) {
+  } else if (xBtnActive == false && yBtnActive == false && zBtnActive == true) {
     x.btn.classList.add("service-button-clicked");
     removeBlur(x);
-  } else if (
-    !x.btn.classList.contains("service-button-clicked") &&
-    y.btn.classList.contains("service-button-clicked") &&
-    z.btn.classList.contains("service-button-clicked")
-  ) {
+  } else if (xBtnActive == false && yBtnActive == true && zBtnActive == true) {
     y.btn.classList.remove("service-button-clicked");
     z.btn.classList.remove("service-button-clicked");
     removeBlur(x);
-  } else if (
-    x.btn.classList.contains("service-button-clicked") &&
-    !y.btn.classList.contains("service-button-clicked") &&
-    !z.btn.classList.contains("service-button-clicked")) {
+  } else if (xBtnActive == true && yBtnActive == false && zBtnActive == false) {
     x.btn.classList.remove("service-button-clicked");
     removeBlur(y);
     removeBlur(z);
-  }
-  else if (
-    x.btn.classList.contains("service-button-clicked") &&
-    y.btn.classList.contains("service-button-clicked") &&
-    !z.btn.classList.contains("service-button-clicked")) {
+  } else if (xBtnActive == true && yBtnActive == true && zBtnActive == false) {
     x.btn.classList.remove("service-button-clicked");
     addBlur(x);
-  }
-  else if (
-    x.btn.classList.contains("service-button-clicked") &&
-    !y.btn.classList.contains("service-button-clicked") &&
-    z.btn.classList.contains("service-button-clicked")) {
+  } else if (xBtnActive == true && yBtnActive == false && zBtnActive == true) {
     x.btn.classList.remove("service-button-clicked");
     addBlur(x);
   }
