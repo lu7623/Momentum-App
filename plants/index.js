@@ -26,163 +26,79 @@ document.addEventListener('click', function(e) {
 
   //service buttons
 
-  let btnGardens = document.querySelector('.btn-gardens');
-  let btnLawn = document.querySelector('.btn-lawn');
-  let btnPlanting = document.querySelector('.btn-planting');
+const gardens = {
+    btn:  document.querySelector('.btn-gardens'),
+    cards: document.querySelectorAll('.card-gardens')
+}
 
-  let cardGardens = document.querySelectorAll('.card-gardens');
-  let cardPlanting = document.querySelectorAll('.card-planting');
-  let cardLawn = document.querySelectorAll('.card-lawn');
+const planting ={
+    btn: document.querySelector('.btn-planting'),
+    cards: document.querySelectorAll('.card-planting')
+}
 
-  btnGardens.addEventListener('click', function(){
-    
-    if ((!btnGardens.classList.contains('service-button-clicked')) && (!btnPlanting.classList.contains('service-button-clicked')) && (!btnLawn.classList.contains('service-button-clicked'))){
+const lawn = {
+ btn: document.querySelector('.btn-lawn'),
+ cards: document.querySelectorAll('.card-lawn')
+}
 
-        btnGardens.classList.add('service-button-clicked');
-        setTimeout(() =>{
-    for (let card of cardPlanting) {
-	card.classList.add('blur');}
-    for (let card of cardLawn) {
-        card.classList.add('blur');}
-    },300)
-    }
-
-    else if ((!btnGardens.classList.contains('service-button-clicked')) && (btnPlanting.classList.contains('service-button-clicked')) && (!btnLawn.classList.contains('service-button-clicked'))){
- btnGardens.classList.add('service-button-clicked');
- setTimeout(() =>{
-    for (let card of cardGardens) {
-        card.classList.remove('blur');}
-    },300)
-    }
-
-    else if ((!btnGardens.classList.contains('service-button-clicked')) && (!btnPlanting.classList.contains('service-button-clicked')) && (btnLawn.classList.contains('service-button-clicked'))){
-        btnGardens.classList.add('service-button-clicked');
-        setTimeout(() =>{
-           for (let card of cardGardens) {
-               card.classList.remove('blur');}
-            },300)
-           }
-
-    else if ((!btnGardens.classList.contains('service-button-clicked')) && (btnPlanting.classList.contains('service-button-clicked')) && (btnLawn.classList.contains('service-button-clicked'))){
-            btnPlanting.classList.remove('service-button-clicked');
-            btnLawn.classList.remove('service-button-clicked');
-            setTimeout(() =>{
-               for (let card of cardGardens) {
-                   card.classList.remove('blur');}
-                },300)
-               }
-
-     else if (btnGardens.classList.contains('service-button-clicked')){
-        btnGardens.classList.remove('service-button-clicked');
-        setTimeout(() =>{
-        for (let card of cardPlanting) {
+function removeBlur(n) {
+    setTimeout(() =>{
+        for (let card of n.cards) {
             card.classList.remove('blur');}
-            for (let card of cardLawn) {
-                card.classList.remove('blur');}
-            },300)
-     }
-    
+        },300)
+}
+
+function addBlur(n) {
+    setTimeout(() =>{
+        for (let card of n.cards) {
+            card.classList.add('blur');}
+        },300)
+}
+
+function onclick(x,y,z){ 
+    if ((!x.btn.classList.contains('service-button-clicked')) && (!y.btn.classList.contains('service-button-clicked')) && (!z.btn.classList.contains('service-button-clicked'))){
+        x.btn.classList.add('service-button-clicked');
+       addBlur(y);
+       addBlur(z);
+}
+
+    else if ((!x.btn.classList.contains('service-button-clicked')) && (y.btn.classList.contains('service-button-clicked')) && (!z.btn.classList.contains('service-button-clicked'))){
+     x.btn.classList.add('service-button-clicked');
+     removeBlur(x);
+        }
+
+    else if ((!x.btn.classList.contains('service-button-clicked')) && (!y.btn.classList.contains('service-button-clicked')) && (z.btn.classList.contains('service-button-clicked'))){
+         x.btn.classList.add('service-button-clicked');
+         removeBlur(x);
+    }
+            
+    else if ((!x.btn.classList.contains('service-button-clicked')) && (y.btn.classList.contains('service-button-clicked')) && (z.btn.classList.contains('service-button-clicked'))){
+        y.btn.classList.remove('service-button-clicked');
+        z.btn.classList.remove('service-button-clicked');
+        removeBlur(x);
+         }
+
+     else if (x.btn.classList.contains('service-button-clicked')){
+    x.btn.classList.remove('service-button-clicked');
+    removeBlur(y);
+    removeBlur(z);             
+                 }
+}
+
+
+gardens.btn.addEventListener('click', function(){
+    onclick(gardens, lawn, planting)  ;
+
 });
 
+lawn.btn.addEventListener('click', function(){
+    onclick(lawn, gardens, planting)  ;
 
-btnLawn.addEventListener('click', function(){
-    
-    if ((!btnLawn.classList.contains('service-button-clicked')) && (!btnPlanting.classList.contains('service-button-clicked')) && (!btnGardens.classList.contains('service-button-clicked'))){
-setTimeout(() =>{
-        btnLawn.classList.add('service-button-clicked');
-    for (let card of cardPlanting) {
-	card.classList.add('blur');}
-    for (let card of cardGardens) {
-        card.classList.add('blur');}
-    },300)
-    }
-
-
-    else if ((!btnLawn.classList.contains('service-button-clicked')) && (btnPlanting.classList.contains('service-button-clicked')) && (!btnGardens.classList.contains('service-button-clicked'))){
- btnLawn.classList.add('service-button-clicked');
- setTimeout(() =>{
-    for (let card of cardLawn ) {
-        card.classList.remove('blur');}
-    },300)
-    }
-
-    else if ((!btnLawn.classList.contains('service-button-clicked')) && (!btnPlanting.classList.contains('service-button-clicked')) && (btnGardens.classList.contains('service-button-clicked'))){
-        btnLawn.classList.add('service-button-clicked');
-        setTimeout(() =>{
-           for (let card of cardLawn) {
-               card.classList.remove('blur');}
-            },300) 
-           }
-
-    else if ((!btnLawn.classList.contains('service-button-clicked')) && (btnGardens.classList.contains('service-button-clicked')) && (btnPlanting.classList.contains('service-button-clicked'))){
-            btnPlanting.classList.remove('service-button-clicked');
-            btnGardens.classList.remove('service-button-clicked');
-            setTimeout(() =>{
-               for (let card of cardLawn) {
-                   card.classList.remove('blur');}
-                },300)
-               }
-
-     else if (btnLawn.classList.contains('service-button-clicked')){
-        btnLawn.classList.remove('service-button-clicked');
-        setTimeout(() =>{
-        for (let card of cardPlanting) {
-            card.classList.remove('blur');}
-            for (let card of cardGardens) {
-                card.classList.remove('blur');}
-            },300)
-     }
-    
 });
 
+planting.btn.addEventListener('click', function(){
+    onclick(planting, lawn, gardens)  ;
 
-btnPlanting.addEventListener('click', function(){
-    if ((!btnPlanting.classList.contains('service-button-clicked')) && (!btnLawn.classList.contains('service-button-clicked')) && (!btnGardens.classList.contains('service-button-clicked'))){
-
-        btnPlanting.classList.add('service-button-clicked');
-        setTimeout(() =>{
-    for (let card of cardLawn) {
-	card.classList.add('blur');}
-    for (let card of cardGardens) {
-        card.classList.add('blur');}
-    },300)
-    }
-
-    else if ((!btnPlanting.classList.contains('service-button-clicked')) && (btnLawn.classList.contains('service-button-clicked')) && (!btnGardens.classList.contains('service-button-clicked'))){
- btnPlanting.classList.add('service-button-clicked');
- setTimeout(() =>{
-    for (let card of cardPlanting ) {
-        card.classList.remove('blur');}
-    },300)
-    }
-
-    else if ((!btnPlanting.classList.contains('service-button-clicked')) && (!btnLawn.classList.contains('service-button-clicked')) && (btnGardens.classList.contains('service-button-clicked'))){
-        btnPlanting.classList.add('service-button-clicked');
-        setTimeout(() =>{
-           for (let card of cardPlanting) {
-               card.classList.remove('blur');}
-            },300)
-           }
-
-    else if ((!btnPlanting.classList.contains('service-button-clicked')) && (btnGardens.classList.contains('service-button-clicked')) && (btnLawn.classList.contains('service-button-clicked'))){
-            btnLawn.classList.remove('service-button-clicked');
-            btnGardens.classList.remove('service-button-clicked');
-            setTimeout(() =>{
-               for (let card of cardPlanting) {
-                   card.classList.remove('blur');}
-                },300)
-               }
-
-     else if (btnPlanting.classList.contains('service-button-clicked')){
-        btnPlanting.classList.remove('service-button-clicked');
-        setTimeout(() =>{
-        for (let card of cardLawn) {
-            card.classList.remove('blur');}
-            for (let card of cardGardens) {
-                card.classList.remove('blur');}
-            },300)
-     }
-    
 });
 
 //Prices accordion
