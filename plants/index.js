@@ -77,11 +77,8 @@ function onclick(x, y, z) {
   } else if (xBtnActive == false && yBtnActive == false && zBtnActive == true) {
     x.btn.classList.add("service-button-clicked");
     removeBlur(x);
-  } else if (xBtnActive == false && yBtnActive == true && zBtnActive == true) {
-    y.btn.classList.remove("service-button-clicked");
-    z.btn.classList.remove("service-button-clicked");
-    removeBlur(x);
-  } else if (xBtnActive == true && yBtnActive == false && zBtnActive == false) {
+  }
+   else if (xBtnActive == true && yBtnActive == false && zBtnActive == false) {
     x.btn.classList.remove("service-button-clicked");
     removeBlur(y);
     removeBlur(z);
@@ -220,6 +217,7 @@ const sherrill = {
 };
 
 const city = document.getElementById("city");
+const cities = [canandaigua, newyork, yonkers, sherrill];
 
 function chooseCity(x) {
   setTimeout(() => {
@@ -230,28 +228,13 @@ function chooseCity(x) {
   }, 300);
 }
 
-canandaigua.btn.addEventListener("click", function () {
-  chooseCity(canandaigua);
-});
-newyork.btn.addEventListener("click", function () {
-  chooseCity(newyork);
-});
-yonkers.btn.addEventListener("click", function () {
-  chooseCity(yonkers);
-});
-sherrill.btn.addEventListener("click", function () {
-  chooseCity(sherrill);
+cities.forEach((el) => {
+  el.btn.addEventListener("click", function () {
+    chooseCity(el);
+  });
+  el.call.addEventListener("click", function () {
+    window.open(el.phone);
+  });
 });
 
-canandaigua.call.addEventListener("click", function () {
-  window.open(canandaigua.phone);
-});
-newyork.call.addEventListener("click", function () {
-  window.open(newyork.phone);
-});
-yonkers.call.addEventListener("click", function () {
-  window.open(yonkers.phone);
-});
-sherrill.call.addEventListener("click", function () {
-  window.open(sherrill.phone);
-});
+
