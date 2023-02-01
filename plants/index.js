@@ -103,81 +103,55 @@ planting.btn.addEventListener('click', function(){
 
 //Prices accordion
 
-const basicPrice = document.getElementById('basics');
-const basicText = document.getElementById('basics-text');
-const basicDropdown = document.getElementById('dropdown-basics');
-basicDropdown.addEventListener('click', function(){
-if (!basicPrice.classList.contains("price-open")) {
-    basicPrice.classList.add('price-open');
-    basicText.classList.add('price-text-open');
-    basicDropdown.classList.add('arrow-open')}
-    else {
-        basicPrice.classList.remove('price-open');
-    basicText.classList.remove('price-text-open');
-    basicDropdown.classList.remove('arrow-open');
-    }
-if (standardPrice.classList.contains("price-open") ) {
-    standardPrice.classList.remove('price-open');
-    standardText.classList.remove('price-text-open');
-    standardDropdown.classList.remove('arrow-open')
-}
-if (procarePrice.classList.contains("price-open") ) {
-    procarePrice.classList.remove('price-open');
-    procareText.classList.remove('price-text-open');
-    procareDropdown.classList.remove('arrow-open')
+const basic = {
+    price: document.getElementById('basics'),
+    text: document.getElementById('basics-text'),
+    dropdown:  document.getElementById('dropdown-basics')
 }
 
-})
+const standard = {
+    price: document.getElementById('standard'),
+    text: document.getElementById('standard-text'),
+    dropdown: document.getElementById('dropdown-standard')
+}
 
-const standardPrice = document.getElementById('standard');
-const standardText = document.getElementById('standard-text');
-const standardDropdown = document.getElementById('dropdown-standard');
-standardDropdown.addEventListener('click', function(){
-    if (!standardPrice.classList.contains("price-open")) {
-            standardPrice.classList.add('price-open');
-    standardText.classList.add('price-text-open');
-    standardDropdown.classList.add('arrow-open')}
-    else {
-     standardPrice.classList.remove('price-open');
-    standardText.classList.remove('price-text-open');
-    standardDropdown.classList.remove('arrow-open');
-    }
-    if (basicPrice.classList.contains("price-open")) {
-        basicPrice.classList.remove('price-open');
-        basicText.classList.remove('price-text-open');
-        basicDropdown.classList.remove('arrow-open')}
-     if (procarePrice.classList.contains("price-open") ) {
-            procarePrice.classList.remove('price-open');
-            procareText.classList.remove('price-text-open');
-            procareDropdown.classList.remove('arrow-open')
+const procare = {
+   price: document.getElementById('procare'),
+   text: document.getElementById('procare-text'),
+   dropdown: document.getElementById('dropdown-procare')
+}
+
+function choosePrice (x,y,z) {
+    if (!x.price.classList.contains("price-open")) {
+            x.price.classList.add('price-open');
+            x.text.classList.add('price-text-open');
+            x.dropdown.classList.add('arrow-open')}
+     else {
+            x.price.classList.remove('price-open');
+            x.text.classList.remove('price-text-open');
+            x.dropdown.classList.remove('arrow-open');
+            }
+    if (y.price.classList.contains("price-open") ) {
+            y.price.classList.remove('price-open');
+            y.text.classList.remove('price-text-open');
+            y.dropdown.classList.remove('arrow-open')
         }
-})
-
-const procarePrice = document.getElementById('procare');
-const procareText = document.getElementById('procare-text');
-const procareDropdown = document.getElementById('dropdown-procare');
-procareDropdown.addEventListener('click', function(){
-    if (!procarePrice.classList.contains("price-open") ) {
-        procarePrice.classList.add('price-open');
-        procareText.classList.add('price-text-open');
-        procareDropdown.classList.add('arrow-open')
-    } 
-    else {
-            procarePrice.classList.remove('price-open');
-            procareText.classList.remove('price-text-open');
-            procareDropdown.classList.remove('arrow-open')
-    }
-    if (basicPrice.classList.contains("price-open")) {
-        basicPrice.classList.remove('price-open');
-        basicText.classList.remove('price-text-open');
-        basicDropdown.classList.remove('arrow-open')}
-
-  if (standardPrice.classList.contains("price-open") ) {
-            standardPrice.classList.remove('price-open');
-            standardText.classList.remove('price-text-open');
-            standardDropdown.classList.remove('arrow-open')
+    if (z.price.classList.contains("price-open") ) {
+            z.price.classList.remove('price-open');
+            z.text.classList.remove('price-text-open');
+            z.dropdown.classList.remove('arrow-open')
         }
-})
+    }
+    
+basic.dropdown.addEventListener('click', function(){  
+    choosePrice (basic,standard,procare)
+});
+standard.dropdown.addEventListener('click', function(){  
+    choosePrice (standard,basic,procare)
+});
+procare.dropdown.addEventListener('click', function(){  
+    choosePrice (procare,standard,basic)
+});
 
 let order = document.querySelectorAll('.order');
 order.forEach(el => el.addEventListener('click', function(){
