@@ -480,8 +480,6 @@ body {
 }
 
 .city-btn:hover {
-  background-color: #c1e698;
-  border: 1px solid #d6e7d2;
   cursor: pointer;
 }
 
@@ -709,7 +707,7 @@ body {
 .address-open {
   display: flex;
   position: relative;
-  top: 40px;
+  top: 42px;
   z-index: 3;
 }
 
@@ -752,6 +750,8 @@ td:nth-of-type(2n) {
 
 .call:hover {
   cursor: pointer;
+  background: #e06733;
+  color: #e3e1d5;
 }
 
 @media (max-width: 1304px) {
