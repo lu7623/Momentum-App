@@ -46,19 +46,6 @@ return hours;
     greeting.textContent = `Good ${n},` ;
   }
 
- 
-  function setLocalStorage() {
-    localStorage.setItem('username', name.value);
-  }
-  window.addEventListener('beforeunload', setLocalStorage);
-
-  function getLocalStorage() {
-    if(localStorage.getItem('username')) {
-      name.value = localStorage.getItem('username');
-    }
-  }
-  window.addEventListener('load', getLocalStorage);
-
 
   showTime();
 
@@ -109,3 +96,71 @@ let randomNum;
   }
 
   slidePrev.addEventListener('click', getSlidePrev);
+
+  // local weather
+
+const weatherIcon = document.querySelector('.weather-icon');
+const temperature = document.querySelector('.temperature');
+const weatherDescription = document.querySelector('.weather-description');
+const city = document.querySelector('.city');
+const wind = document.querySelector('.wind');
+const humidity = document.querySelector('.humidity')
+
+  async function getWeather() {  
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=69d8742959633abc3c7e3a16af14871a&units=metric`;
+    const res = await fetch(url);
+    const data = await res.json(); 
+    weatherIcon.className = 'weather-icon owf';
+    weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+    temperature.textContent = `${Math.round(data.main.temp)}°C`;
+    weatherDescription.textContent = data.weather[0].description;
+    wind.textContent = `${Math.round(data.wind.speed)} m/s`;
+    humidity.textContent = `${data.main.humidity}%`;
+  }
+
+  function setCity(event) {
+    if (event.code === 'Enter') {
+      getWeather();
+      city.blur();
+    }
+  }
+  
+  document.addEventListener('DOMContentLoaded', getWeather);
+  city.addEventListener('keypress', setCity);
+  
+  function setLocalStorage() {
+    localStorage.setItem('username', name.value);
+    localStorage.setItem('usercity', city.value);
+
+  }
+  window.addEventListener('beforeunload', setLocalStorage);
+
+  function getLocalStorage() {
+    if(localStorage.getItem('username')) {
+      name.value = localStorage.getItem('username');
+    };
+    if(localStorage.getItem('usercity')) {
+      city.value = localStorage.getItem('usercity');
+    }
+  }
+  window.addEventListener('load', getLocalStorage);
+
+  //quotes
+
+  const author = document.querySelector('.author');
+  const quote = document.querySelector('.quote');
+  const changeQuote = document.querySelector('.change-quote')
+
+
+  async function getQuote() {  
+    const quoteUrl = `https://type.fit/api/quotes`;
+    const res = await fetch(quoteUrl);
+    const data = await res.json(); 
+    let randomQuote = Math.floor(Math.random()*data.length);
+quote.innerText = data[randomQuote].text;
+author.innerText = data[randomQuote].author;
+  }
+
+getQuote();
+
+changeQuote.addEventListener('click', getQuote);
