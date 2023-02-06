@@ -104,9 +104,11 @@ const temperature = document.querySelector('.temperature');
 const weatherDescription = document.querySelector('.weather-description');
 const city = document.querySelector('.city');
 const wind = document.querySelector('.wind');
-const humidity = document.querySelector('.humidity')
+const humidity = document.querySelector('.humidity');
+const error = document.querySelector('.weather-error');
 
   async function getWeather() {  
+try{
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=69d8742959633abc3c7e3a16af14871a&units=metric`;
     const res = await fetch(url);
     const data = await res.json(); 
@@ -116,6 +118,15 @@ const humidity = document.querySelector('.humidity')
     weatherDescription.textContent = data.weather[0].description;
     wind.textContent = `${Math.round(data.wind.speed)} m/s`;
     humidity.textContent = `${data.main.humidity}%`;
+    error.innerText = '';
+} 
+catch (e) {
+error.innerText = 'Error! try to enter another city';
+temperature.textContent = '';
+weatherDescription.textContent = '';
+wind.textContent = '';
+humidity.textContent = '';
+}
   }
 
   function setCity(event) {
@@ -164,3 +175,61 @@ author.innerText = data[randomQuote].author;
 getQuote();
 
 changeQuote.addEventListener('click', getQuote);
+
+// audio player 
+
+const audio = new Audio();
+const playBtn = document.querySelector('.play');
+const nextAudio = document.querySelector('.play-next');
+const prevAudio = document.querySelector('.play-prev');
+const playListContainer = document.querySelector('.play-list');
+let isPlay = false;
+let playNum = 0;
+import playList from './playList.js';
+
+function playAudio() {
+    audio.src = playList[playNum].src;
+  audio.currentTime = 0;
+  audio.play();
+console.log (playList[playNum].src);
+}
+
+function pauseAudio() {
+  audio.pause();
+}
+
+
+playBtn.addEventListener('click', () => {
+  if (isPlay == false) {
+    playAudio();   
+isPlay = true;
+playBtn.classList.add('pause');
+}
+  else {
+    pauseAudio();
+    isPlay = false;
+    playBtn.classList.remove('pause');
+  }
+});
+
+nextAudio.addEventListener('click', () => {
+  if (playNum < (playList.length-1)) {
+  playNum = playNum + 1;}
+  else {playNum = 0}
+  playAudio();
+});
+
+prevAudio.addEventListener('click', () => {
+  if (playNum >0) {
+  playNum = playNum - 1;}
+  else {playNum = playList.length-1}
+  playAudio();
+});
+
+playList.forEach(el => {
+  const li = document.createElement('li');
+li.classList.add('play-item');
+li.textContent = el.title;
+playListContainer.append(li);
+})
+
