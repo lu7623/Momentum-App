@@ -43,9 +43,52 @@
     </div>
   </main>
   <footer class="footer">
+    <button class="settings-btn"></button>
+    <div class="settings">
+      <ul class="setting-list">
+        <li id="language">Language</li>
+        <li id="photo">Photo Source</li>
+        <li id="blocks">Blocks</li>
+      </ul>
+    </div>
+  <div class="options language-option">
+    <ul>
+      <li id="english">English</li>
+      <li id="russian">Russian</li>
+    </ul>
+  </div>
+   <div class="options photo-option">
+    <ul><li>
+      <input type="radio" id="github"
+             name="photo" value="github" checked>         
+      <label for="github">GitHub</label>
+    </li>
+    <li>
+      <input type="radio" id="unsplash"
+             name="photo" value="unsplash">
+      <label for="unsplash">Unsplash API</label> 
+    </li>
+    <li>
+      <input type="radio" id="flickr"
+             name="photo" value="flickr">
+      <label for="flickr">Flickr API</label>
+    </li></ul>
+   </div>   
+    <div class="options blocks-option">
+      <ul>
+        <li id="timeSet">Time</li>
+        <li id="dateSet">Date</li>
+        <li id="greetinSet">Greeting</li>
+        <li id="quotesSet">Quotes</li>
+        <li id="weatherSet">Weather</li>
+        <li id="audioSet">Audio</li>
+        <li id="todoSet">ToDo List</li>
+      </ul>
+    </div>
+  
     <button class="change-quote"></button>
     <div>
-      <div class="quote"></div>
+      <div class="quote"></div>   
       <div class="author"></div>
     </div>
   </footer>

@@ -61,8 +61,9 @@ let randomNum;
     randomNum = Math.ceil(Math.random()*20);
   }
   getRandomNum();
-  
-  function setBg() {
+
+
+  function setBgGithub() {
     const img = new Image();
     let time = getHours(); 
     let timeOfDay = getTimeOfDay(time);
@@ -71,17 +72,23 @@ let randomNum;
   img.onload = () => {      
     body.style.backgroundImage = `url('https://raw.githubusercontent.com/lu7623/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg')`;
   }; 
-   console.log(randomNum);
   }
-  setBg();
+  setBgGithub();
 
   function getSlideNext(){
+    if (state.photoSource == 'github') {
     if (randomNum < 20) { 
         randomNum +=1;  
     } else {
         randomNum = 1;
     }
-    setBg();
+    setBgGithub();}
+    else if (state.photoSource == 'unsplash') {
+      setBgUnsplash();
+    }
+    else if (state.photoSource == 'flickr') {
+      setBgFlickr();
+    }
   }
 
   slideNext.addEventListener('click', getSlideNext);
@@ -92,7 +99,7 @@ let randomNum;
     } else {
         randomNum = 20;
     }
-    setBg();
+    setBgGithub();
   }
 
   slidePrev.addEventListener('click', getSlidePrev);
@@ -231,5 +238,103 @@ playList.forEach(el => {
 li.classList.add('play-item');
 li.textContent = el.title;
 playListContainer.append(li);
+});
+
+
+// background from API
+
+//const unsplashUrl = 'https://api.unsplash.com/photos/random?orientation=landscape&query=nature&client_id=rEz5fpSUULbWREfG6Yj64VdzGQHkGdRR7iAabjo3fT0'
+
+//const flickrUrl = 'https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=d9ed9dcf3ac57aec450fcde722caec11&tags=nature&extras=url_l&format=json&nojsoncallback=1';
+
+
+async function getLinkToImageUnsplash(anyurl) {
+  const url = anyurl;
+  const res = await fetch(url);
+  const data = await res.json();
+  console.log(data.urls.regular);
+return data.urls.regular;
+ }
+
+ async function setBgUnsplash() {
+  const img = new Image();
+  let time = getHours(); 
+  let timeOfDay = getTimeOfDay(time);
+  const unsplashUrl = `https://api.unsplash.com/photos/random?orientation=landscape&query=${timeOfDay}&client_id=rEz5fpSUULbWREfG6Yj64VdzGQHkGdRR7iAabjo3fT0`;
+   const imgUrl = await getLinkToImageUnsplash(unsplashUrl);
+   console.log(imgUrl);
+  body.style.backgroundImage = `url(${imgUrl})`;
+}; 
+ 
+
+async function getLinkToImageFlickr(anyurl) {
+  const url = anyurl;
+  const res = await fetch(url);
+  const data = await res.json();
+  let random = Math.floor(Math.random()*100);
+ return data.photos.photo[random].url_l;
+ }
+ 
+ async function setBgFlickr() {
+  let time = getHours(); 
+  let timeOfDay = getTimeOfDay(time);
+  const flickrUrl = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=d9ed9dcf3ac57aec450fcde722caec11&tags=${timeOfDay},nature&extras=url_l&format=json&nojsoncallback=1`;
+  const imgUrl = await getLinkToImageFlickr(flickrUrl);
+  console.log(imgUrl);
+  body.style.backgroundImage = `url(${imgUrl})`;
+};
+
+
+//settings
+
+const settingsBtn = document.querySelector('.settings-btn');
+const settings = document.querySelector('.settings');
+const languageSet = document.getElementById('language');
+const photoSet = document.getElementById('photo');
+const blocksSet = document.getElementById('blocks');
+const languageOptions = document.querySelector('.language-option');
+const photoOptions = document.querySelector('.photo-option');
+const blocksOptions = document.querySelector('.blocks-option');
+
+settingsBtn.addEventListener('click', () => {
+  settings.classList.toggle('settings-open');
 })
+
+languageSet.addEventListener('click', function() {
+  languageOptions.classList.toggle('options-open');
+});
+photoSet.addEventListener('click', function(){
+  photoOptions.classList.toggle('options-open');
+});
+blocksSet.addEventListener('click', function(){
+  blocksOptions.classList.toggle('options-open');
+})
+
+const state = {
+  language: 'en',
+  photoSource: 'github',
+  blocks: ['time', 'date','greeting', 'quote', 'weather', 'audio', 'todolist']
+}
+
+const photo = document.getElementsByName('photo');
+
+photo.forEach((elem) => {
+  elem.addEventListener("change", function(event) {
+    var item = event.target.value;
+    if (item == 'github') {
+      state.photoSource = 'github';
+      setBgGithub();
+   } else if (item == 'unsplash') {
+     state.photoSource = 'unsplash';
+     setBgUnsplash();
+   } else if (item == 'flickr') {
+     state.photoSource = 'flickr';
+     setBgFlickr();
+   }
+   console.log (state.photoSource);
+  });})
+
+  
+
+
 
