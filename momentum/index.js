@@ -1,3 +1,9 @@
+const state = {
+  language: 'en',
+  photoSource: 'github',
+  blocks: ['time', 'date','greeting', 'quote', 'weather', 'audio', 'todolist']
+}
+
 // date and time
 
 const time = document.querySelector('.time');
@@ -6,7 +12,9 @@ const date1 = document.querySelector('.date');
 function showDate() {
     const date = new Date();
 const options = { weekday: 'long', month: 'long', day: 'numeric'};
-const currentDate = date.toLocaleDateString('en-EN', options);
+let lang;
+state.language == 'en' ? lang = 'en-EN' : lang = 'ru-RU';
+const currentDate = date.toLocaleDateString(lang, options);
 date1.textContent = currentDate;
 }
 
@@ -43,7 +51,15 @@ return hours;
  function showGreeting() {
    let time = getHours(); 
    let n = getTimeOfDay(time);
-    greeting.textContent = `Good ${n},` ;
+   if (state.language == 'en') {
+    greeting.textContent = `Good ${n},` }
+  else if (state.language == 'ru') {
+    name.placeholder = '[Введите имя]';
+   if (n == 'night') { greeting.textContent = 'Доброй ночи, '}
+   else if (n == 'morning') { greeting.textContent = 'Доброе утро, '}
+   else if (n == 'afternoon') { greeting.textContent = 'Добрый день, '}
+   else { greeting.textContent = 'Добрый вечер, '}
+  }
   }
 
 
@@ -114,9 +130,13 @@ const wind = document.querySelector('.wind');
 const humidity = document.querySelector('.humidity');
 const error = document.querySelector('.weather-error');
 
+
+
   async function getWeather() {  
+    if (state.language == 'en') { city.value = 'Minsk'}
+else if (state.language == 'ru') {city.value = 'Минск'}
 try{
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=69d8742959633abc3c7e3a16af14871a&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${state.language}&appid=69d8742959633abc3c7e3a16af14871a&units=metric`;
     const res = await fetch(url);
     const data = await res.json(); 
     weatherIcon.className = 'weather-icon owf';
@@ -170,7 +190,7 @@ humidity.textContent = '';
   const changeQuote = document.querySelector('.change-quote')
 
 
-  async function getQuote() {  
+  async function getQuoteEn() {  
     const quoteUrl = `https://type.fit/api/quotes`;
     const res = await fetch(quoteUrl);
     const data = await res.json(); 
@@ -179,9 +199,20 @@ quote.innerText = data[randomQuote].text;
 author.innerText = data[randomQuote].author;
   }
 
-getQuote();
+//getQuoteEn();
 
-changeQuote.addEventListener('click', getQuote);
+changeQuote.addEventListener('click', getQuoteEn);
+
+
+async function getQuoteRu() {  
+  const quoteUrl = `https://api.forismatic.com/api/1.0/?method=getQuote&format=json`;
+  const res = await fetch(quoteUrl);
+  const data = await res.json(); 
+  console.log(data);
+quote.innerText = data.quoteText;
+author.innerText = data.quoteAuthor;
+}
+getQuoteRu();
 
 // audio player 
 
@@ -310,12 +341,6 @@ blocksSet.addEventListener('click', function(){
   blocksOptions.classList.toggle('options-open');
 })
 
-const state = {
-  language: 'en',
-  photoSource: 'github',
-  blocks: ['time', 'date','greeting', 'quote', 'weather', 'audio', 'todolist']
-}
-
 const photo = document.getElementsByName('photo');
 
 photo.forEach((elem) => {
@@ -334,7 +359,20 @@ photo.forEach((elem) => {
    console.log (state.photoSource);
   });})
 
-  
 
+  const lang = document.getElementsByName('lang');
 
-
+lang.forEach((elem) => {
+  elem.addEventListener("change", function(event) {
+    var item = event.target.value;
+  if (item == 'en') {
+state.language = 'en';
+getWeather();
+  }
+  else if (item == 'ru') {
+    state.language = 'ru';
+    getWeather();
+  }
+  console.log(state);
+  })
+})

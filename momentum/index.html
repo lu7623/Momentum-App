@@ -19,7 +19,7 @@
       <ul class="play-list"></ul>
     </div>
     <div class="weather">
-      <input type="text" class="city" value="Minsk" />
+      <input type="text" class="city" />
       <i class="weather-icon owf"></i>
       <div class="weather-error"></div>
       <div class="description-container">
@@ -53,8 +53,15 @@
     </div>
   <div class="options language-option">
     <ul>
-      <li id="english">English</li>
-      <li id="russian">Russian</li>
+      <li>
+        <input type="radio" id="english"
+             name="lang" value="en" checked>         
+      <label for="github">English</label>
+      </li>
+      <li id="russian">
+        <input type="radio" id="russian"
+             name="lang" value="ru">         
+      <label for="github">Russian</label></li>
     </ul>
   </div>
    <div class="options photo-option">
