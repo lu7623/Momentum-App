@@ -131,10 +131,10 @@ const humidity = document.querySelector('.humidity');
 const error = document.querySelector('.weather-error');
 
 
+if (state.language == 'en') { city.value = 'Minsk'}
+else if (state.language == 'ru') {city.value = 'Минск'};
 
-  async function getWeather() {  
-    if (state.language == 'en') { city.value = 'Minsk'}
-else if (state.language == 'ru') {city.value = 'Минск'}
+  async function getWeather() {    
 try{
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${state.language}&appid=69d8742959633abc3c7e3a16af14871a&units=metric`;
     const res = await fetch(url);
@@ -199,20 +199,21 @@ quote.innerText = data[randomQuote].text;
 author.innerText = data[randomQuote].author;
   }
 
-//getQuoteEn();
+getQuoteEn();
 
 changeQuote.addEventListener('click', getQuoteEn);
 
 
-async function getQuoteRu() {  
-  const quoteUrl = `https://api.forismatic.com/api/1.0/?method=getQuote&format=json`;
-  const res = await fetch(quoteUrl);
-  const data = await res.json(); 
-  console.log(data);
-quote.innerText = data.quoteText;
-author.innerText = data.quoteAuthor;
-}
-getQuoteRu();
+// async function getQuoteRu() {  
+
+//   const quoteUrl = `https://api.forismatic.com/api/1.0/?method=getQuote&format=json&key=8090&lang=en`;
+//   const res = await fetch(quoteUrl);
+//   const data = await res.json(); 
+//   console.log(data);
+// quote.innerText = data.quoteText;
+// author.innerText = data.quoteAuthor;
+// }
+// getQuoteRu();
 
 // audio player 
 
@@ -361,6 +362,16 @@ photo.forEach((elem) => {
 
 
   const lang = document.getElementsByName('lang');
+  const english = document.getElementById('en');
+  const russian = document.getElementById('ru');
+  const timeSet = document.getElementById('timeSet');
+  const dateSet = document.getElementById('dateSet');
+  const greetinSet = document.getElementById('greetinSet');
+  const quotesSet = document.getElementById('quotesSet');
+  const weatherSet = document.getElementById('weatherSet');
+  const audioSet = document.getElementById('audioSet');
+  const todoSet = document.getElementById('todoSet');
+
 
 lang.forEach((elem) => {
   elem.addEventListener("change", function(event) {
@@ -368,11 +379,45 @@ lang.forEach((elem) => {
   if (item == 'en') {
 state.language = 'en';
 getWeather();
+settingsTranslate ();
   }
   else if (item == 'ru') {
     state.language = 'ru';
     getWeather();
+    settingsTranslate ();
   }
   console.log(state);
   })
 })
+
+function settingsTranslate (){
+  if (state.language == 'en'){
+  languageSet.innerText = 'Language';
+  photoSet.innerText = 'Photo Source';
+  blocksSet.innerText = 'Blocks';
+  english.innerText = 'English';
+  russian.innerText = 'Russian';
+  timeSet.innerText = 'Time';
+  dateSet.innerText = 'Date';
+  greetinSet.innerText = 'Greeting';
+  quotesSet.innerText = 'Quote';
+  weatherSet.innerText = 'Weather';
+  audioSet.innerText = 'Audio';
+  todoSet.innerText = 'ToDo list';
+  }
+  else if (state.language == 'ru') {
+    languageSet.innerText = 'Выбор языка';
+  photoSet.innerText = 'Источник изображений';
+  blocksSet.innerText = 'Блоки';
+  english.innerText = 'Английский';
+  russian.innerText = 'Русский';
+  timeSet.innerText = 'Время';
+  dateSet.innerText = 'Дата';
+  greetinSet.innerText = 'Приветствие';
+  quotesSet.innerText = 'Цитата';
+  weatherSet.innerText = 'Погода';
+  audioSet.innerText = 'Аудио';
+  todoSet.innerText = 'Список дел';
+  }
+}
+settingsTranslate ();
