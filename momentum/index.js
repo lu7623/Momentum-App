@@ -255,6 +255,8 @@ nextAudio.addEventListener("click", () => {
     playNum = 0;
   }
   playAudio();
+  playBtn.classList.add("pause");
+  isPlay = true;
 });
 
 prevAudio.addEventListener("click", () => {
@@ -264,6 +266,8 @@ prevAudio.addEventListener("click", () => {
     playNum = playList.length - 1;
   }
   playAudio();
+  playBtn.classList.add("pause");
+  isPlay = true;
 });
 
 playList.forEach((el) => {
@@ -327,12 +331,18 @@ const blocksOptions = document.querySelector(".blocks-option");
 const options = document.querySelectorAll(".options");
 
 settingsBtn.addEventListener("click", () => {
-  settings.classList.toggle("settings-open");
+  if (!settings.classList.contains("settings-open")) {
+  settings.classList.add("settings-open");}
+  else {
+    settings.classList.remove("settings-open");
+    settings.classList.remove("settings-open1");
   options.forEach((x) => {
     if (x.classList.contains("options-open")) {
       x.classList.remove("options-open");
     }
   });
+  
+  }
 });
 
 function toggleSettings(x, y, z) {
