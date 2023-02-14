@@ -44,6 +44,7 @@
   </main>
   <footer class="footer">
     <button class="settings-btn"></button>
+    <div class="settings-container">
     <div class="settings">
       <ul class="setting-list">
         <li id="language"></li>
@@ -83,16 +84,44 @@
    </div>   
     <div class="options blocks-option">
       <ul>
-        <li id="timeSet"></li>
-        <li id="dateSet"></li>
-        <li id="greetinSet"></li>
-        <li id="quotesSet"></li>
-        <li id="weatherSet"></li>
-        <li id="audioSet"></li>
-        <li id="todoSet"></li>
+        <li > <div class="option"> <span id="timeSet"></span>
+          <label class="switch">
+          <input type="checkbox" id="timeSwitch" class="optionsSwitch" checked>
+          <span class="slider round"></span>
+        </label></div></li>
+        <li > <div class="option"> <span id="dateSet"></span>
+          <label class="switch">
+          <input type="checkbox" id="dateSwitch"class="optionsSwitch"  checked>
+          <span class="slider round"></span>
+        </label></div></li>
+        <li > <div class="option"> <span id="greetinSet"></span>
+          <label class="switch">
+          <input type="checkbox" id="greetingSwitch" class="optionsSwitch"  checked>
+          <span class="slider round"></span>
+        </label></div></li>
+        <li > <div class="option"> <span id="quotesSet"></span>
+          <label class="switch">
+          <input type="checkbox" id="quoteSwitch" class="optionsSwitch"  checked>
+          <span class="slider round"></span>
+        </label></div></li>
+        <li > <div class="option"> <span id="weatherSet"></span>
+          <label class="switch">
+          <input type="checkbox" id="weatherSwitch" class="optionsSwitch"  checked>
+          <span class="slider round"></span>
+        </label></div></li>
+        <li > <div class="option"> <span id="audioSet"></span>
+          <label class="switch">
+          <input type="checkbox" id="audioSwitch" class="optionsSwitch"  checked>
+          <span class="slider round"></span>
+        </label></div></li>
+        <li > <div class="option"> <span id="todoSet"></span>
+          <label class="switch">
+          <input type="checkbox" id="todoSwitch" class="optionsSwitch"  checked>
+          <span class="slider round"></span>
+        </label></div></li>
       </ul>
     </div>
-  
+  </div>
     <button class="change-quote"></button>
     <div>
       <div class="quote"></div>   
