@@ -268,7 +268,7 @@ body {
   width: 32px;
   height: 32px;
   position: absolute;
-  bottom: 5%;
+  bottom: 2%;
   left: 30px;
   background-image: url("../assets/svg/settings.svg");
   background-repeat: no-repeat;
@@ -413,6 +413,65 @@ input:checked + .slider:before {
 .hide{
   visibility: hidden;
   width: 0;
+}
+
+.todo-btn{
+  width: 50px;
+  height: 32px;
+  position: absolute;
+  bottom: 2%;
+  right: 30px;
+  font-weight: 700;
+  background-color: transparent;
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.todo-container{
+  display: flex;
+  flex-wrap: wrap;
+    position: absolute;
+    flex-direction: column;
+    justify-content: space-between;
+    right: 10px;
+    bottom: 7%;
+    width: 250 px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 30px;
+    background-color: #fff;
+    color: black;
+    padding: 15px;
+    text-align: left;
+    border-radius: 10px;
+    height: fit-content;
+    min-height: 100px;
+}
+
+.new-todo{
+  height: fit-content;
+position: relative;
+bottom:0;
+}
+
+.todo-list{
+  color:black;
+  list-style: none;
+}
+
+.list-item{
+order: 2;
+padding-left: 10px;
+}
+
+.check{
+  order: 0;
+}
+
+.strikethrough{
+  text-decoration: line-through;
 }
 
 @media (max-width: 768px) {

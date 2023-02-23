@@ -508,9 +508,57 @@ function hideBlocks() {
     player.classList.remove("hide");
     playListContainer.classList.remove("hide");
   }
+  if (!todoSwitch.checked) {
+    todoBtn.classList.add("hide");
+    todoContainer.classList.add("hide");
+  } else {
+    todoBtn.classList.remove("hide");
+    todoContainer.classList.remove("hide");
+  }
 }
 
 const optionsSwitch = document.querySelectorAll(".optionsSwitch");
 optionsSwitch.forEach((x) => {
   x.addEventListener("change", hideBlocks);
 });
+
+
+const todoBtn = document.querySelector('.todo-btn');
+const newTodo = document.querySelector('.new-todo');
+const todoList = document.querySelector('.todo-list');
+const todoContainer = document.querySelector('.todo-container')
+
+newTodo.addEventListener ('change', function (){
+     const todo = newTodo.value; 
+     const newLi = document.createElement('li');
+   const newCheck = document.createElement('input');
+   newCheck.setAttribute("type", "checkbox");
+   const newLiTitle = document.createElement('span');
+   newLiTitle.innerText = todo;
+   newLiTitle.classList.add('list-item');
+  newCheck.classList.add('check');
+  todoList.append(newLi);
+  newLi.append(newCheck);
+  newLi.append(newLiTitle);
+newTodo.value = '';
+isChecked ();
+   });
+
+   function isChecked (){
+const check = document.querySelectorAll('.check');
+const listItem = document.querySelectorAll('.list-item');
+for (let i=0; i<check.length; i++){
+  check[i].addEventListener('change', function(){
+    if (check[i].checked) {
+      listItem[i].classList.add('strikethrough');
+    }
+    else {
+      listItem[i].classList.remove('strikethrough');
+    }
+  })
+} 
+   }
+
+todoBtn.addEventListener('click', function(){
+  todoContainer.classList.toggle('hide');
+})
