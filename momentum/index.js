@@ -189,29 +189,34 @@ const author = document.querySelector(".author");
 const quote = document.querySelector(".quote");
 const changeQuote = document.querySelector(".change-quote");
 
-async function getQuoteEn() {
-  const quoteUrl = `https://type.fit/api/quotes`;
-  const res = await fetch(quoteUrl);
-  const data = await res.json();
-  let randomQuote = Math.floor(Math.random() * data.length);
+
+async function getQuotesEn() {  
+  const quotes = 'data.json';
+  const res = await fetch(quotes);
+  const data = await res.json(); 
+  let randomQuote = Math.floor(Math.random() * 11);
   quote.innerText = data[randomQuote].text;
   author.innerText = data[randomQuote].author;
 }
 
-getQuoteEn();
 
-changeQuote.addEventListener("click", getQuoteEn);
+async function getQuotesRu() {  
+  const quotes = 'data.json';
+  const res = await fetch(quotes);
+  const data = await res.json(); 
+  let randomQuote = Math.floor(Math.random() * 14 + 11);
+  quote.innerText = data[randomQuote].text;
+  author.innerText = data[randomQuote].author;
+}
 
-// async function getQuoteRu() {
+function getQuotes(){
+  if (state.language == 'en') { getQuotesEn() }
+  else if (state.language == 'ru') {
+getQuotesRu()}
+  }
 
-//   const quoteUrl = `https://api.forismatic.com/api/1.0/?method=getQuote&format=json&key=8090&lang=en`;
-//   const res = await fetch(quoteUrl);
-//   const data = await res.json();
-//   console.log(data);
-// quote.innerText = data.quoteText;
-// author.innerText = data.quoteAuthor;
-// }
-// getQuoteRu();
+  getQuotes();
+changeQuote.addEventListener("click", getQuotes);
 
 // audio player
 
@@ -414,10 +419,12 @@ lang.forEach((elem) => {
       state.language = "en";
       getWeather();
       settingsTranslate();
+      getQuotes();
     } else if (item == "ru") {
       state.language = "ru";
       getWeather();
       settingsTranslate();
+      getQuotes();
     }
     console.log(state);
   });
