@@ -454,16 +454,20 @@ input:checked + .slider:before {
   height: fit-content;
 position: relative;
 bottom:0;
+border: none;
 }
 
 .todo-list{
   color:black;
   list-style: none;
+  margin-bottom: 30px;
 }
 
 .list-item{
 order: 2;
-padding-left: 10px;
+padding-left: 10px; 
+padding-right: 10px;
+min-width: 90%;
 }
 
 .check{
@@ -472,6 +476,41 @@ padding-left: 10px;
 
 .strikethrough{
   text-decoration: line-through;
+}
+
+.edit-btn {
+  order: 3;
+  border: none;
+  font-weight: 800;
+  cursor: pointer;
+  width: 30px;
+  height: 20px;
+  color: #fff;
+  background-color: #fff;
+display: flex;
+justify-content: center;
+align-items: flex-start;
+line-height: 15px;
+}
+
+.edit-btn:hover {
+  color: grey;
+  background-color: #eee;
+}
+
+.li-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-panel{
+background-color: #eee;
+cursor: pointer;
+z-index: 10;
+position: absolute;
+right: 35px;
+width: 90px;
+padding-left: 10px;
 }
 
 @media (max-width: 768px) {

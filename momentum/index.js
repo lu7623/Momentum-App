@@ -189,33 +189,33 @@ const author = document.querySelector(".author");
 const quote = document.querySelector(".quote");
 const changeQuote = document.querySelector(".change-quote");
 
-
-async function getQuotesEn() {  
-  const quotes = 'data.json';
+async function getQuotesEn() {
+  const quotes = "data.json";
   const res = await fetch(quotes);
-  const data = await res.json(); 
+  const data = await res.json();
   let randomQuote = Math.floor(Math.random() * 11);
   quote.innerText = data[randomQuote].text;
   author.innerText = data[randomQuote].author;
 }
 
-
-async function getQuotesRu() {  
-  const quotes = 'data.json';
+async function getQuotesRu() {
+  const quotes = "data.json";
   const res = await fetch(quotes);
-  const data = await res.json(); 
+  const data = await res.json();
   let randomQuote = Math.floor(Math.random() * 14 + 11);
   quote.innerText = data[randomQuote].text;
   author.innerText = data[randomQuote].author;
 }
 
-function getQuotes(){
-  if (state.language == 'en') { getQuotesEn() }
-  else if (state.language == 'ru') {
-getQuotesRu()}
+function getQuotes() {
+  if (state.language == "en") {
+    getQuotesEn();
+  } else if (state.language == "ru") {
+    getQuotesRu();
   }
+}
 
-  getQuotes();
+getQuotes();
 changeQuote.addEventListener("click", getQuotes);
 
 // audio player
@@ -337,16 +337,15 @@ const options = document.querySelectorAll(".options");
 
 settingsBtn.addEventListener("click", () => {
   if (!settings.classList.contains("settings-open")) {
-  settings.classList.add("settings-open");}
-  else {
+    settings.classList.add("settings-open");
+  } else {
     settings.classList.remove("settings-open");
     settings.classList.remove("settings-open1");
-  options.forEach((x) => {
-    if (x.classList.contains("options-open")) {
-      x.classList.remove("options-open");
-    }
-  });
-  
+    options.forEach((x) => {
+      if (x.classList.contains("options-open")) {
+        x.classList.remove("options-open");
+      }
+    });
   }
 });
 
@@ -522,43 +521,74 @@ optionsSwitch.forEach((x) => {
   x.addEventListener("change", hideBlocks);
 });
 
+//todo
 
-const todoBtn = document.querySelector('.todo-btn');
-const newTodo = document.querySelector('.new-todo');
-const todoList = document.querySelector('.todo-list');
-const todoContainer = document.querySelector('.todo-container')
+const todoBtn = document.querySelector(".todo-btn");
+const newTodo = document.querySelector(".new-todo");
+const todoList = document.querySelector(".todo-list");
+const todoContainer = document.querySelector(".todo-container");
 
-newTodo.addEventListener ('change', function (){
-     const todo = newTodo.value; 
-     const newLi = document.createElement('li');
-   const newCheck = document.createElement('input');
-   newCheck.setAttribute("type", "checkbox");
-   const newLiTitle = document.createElement('span');
-   newLiTitle.innerText = todo;
-   newLiTitle.classList.add('list-item');
-  newCheck.classList.add('check');
+newTodo.addEventListener("change", function () {
+  const todo = newTodo.value;
+  const newLi = document.createElement("li");
+  const newCheck = document.createElement("input");
+  newCheck.setAttribute("type", "checkbox");
+  const newLiTitle = document.createElement("span");
+  const editBtn = document.createElement("button");
+  newLiTitle.innerText = todo;
+  newLi.classList.add("li-container");
+  newLiTitle.classList.add("list-item");
+  newCheck.classList.add("check");
+  editBtn.classList.add("edit-btn");
+  editBtn.innerText = '...';
   todoList.append(newLi);
   newLi.append(newCheck);
   newLi.append(newLiTitle);
-newTodo.value = '';
-isChecked ();
-   });
+  newLi.append(editBtn);
+  newTodo.value = "";
+  isChecked();
+  listEdit() ;
+});
 
-   function isChecked (){
-const check = document.querySelectorAll('.check');
-const listItem = document.querySelectorAll('.list-item');
-for (let i=0; i<check.length; i++){
-  check[i].addEventListener('change', function(){
-    if (check[i].checked) {
-      listItem[i].classList.add('strikethrough');
-    }
-    else {
-      listItem[i].classList.remove('strikethrough');
-    }
-  })
-} 
-   }
+function isChecked() {
+  const check = document.querySelectorAll(".check");
+  const listItem = document.querySelectorAll(".list-item");
+  for (let i = 0; i < check.length; i++) {
+    check[i].addEventListener("change", function () {
+      if (check[i].checked) {
+        listItem[i].classList.add("strikethrough");
+      } else {
+        listItem[i].classList.remove("strikethrough");
+      }
+    });
+  }
+}
 
-todoBtn.addEventListener('click', function(){
-  todoContainer.classList.toggle('hide');
+function listEdit() {
+  const check = document.querySelectorAll(".edit-btn");
+  const editPanel = document.querySelector('.edit-panel');
+  const newLi = document.querySelectorAll('.li-container');
+  const deleteLi = document.getElementById('delete');
+  for (let i = 0; i < check.length; i++) {
+    check[i].addEventListener("click", function () {
+      if (editPanel.classList.contains('hide')){
+     editPanel.classList.remove('hide')}
+     else {editPanel.classList.add('hide')}
+deleteLi.addEventListener('click', function(){
+  newLi[i].remove();
+  editPanel.classList.add('hide');
 })
+    });
+  }
+  
+}
+
+document.onclick = function (e) {
+  if (e.target.className != "edit-panel") {
+    editPanel.classList.add('hide');
+  };
+};
+
+todoBtn.addEventListener("click", function () {
+  todoContainer.classList.toggle("hide");
+});
