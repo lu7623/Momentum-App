@@ -39,29 +39,30 @@
     <date class="date"></date>
     <div class="greeting-container">
       <span class="greeting"></span>
-      <input type="text" class="name"  placeholder="[Enter Name]"/>
+      <input type="text" class="name"  />
     </div>
   </main>
   <footer class="footer">
     <button class="settings-btn"></button>
+    <div class="settings-container">
     <div class="settings">
       <ul class="setting-list">
-        <li id="language">Language</li>
-        <li id="photo">Photo Source</li>
-        <li id="blocks">Blocks</li>
+        <li id="language"></li>
+        <li id="photo"></li>
+        <li id="blocks"></li>
       </ul>
     </div>
   <div class="options language-option">
     <ul>
-      <li>
+      <li >
         <input type="radio" id="english"
              name="lang" value="en" checked>         
-      <label for="github">English</label>
+      <label id="en" for="english"></label>
       </li>
-      <li id="russian">
+      <li >
         <input type="radio" id="russian"
              name="lang" value="ru">         
-      <label for="github">Russian</label></li>
+      <label id="ru" for="russian"></label></li>
     </ul>
   </div>
    <div class="options photo-option">
@@ -83,20 +84,58 @@
    </div>   
     <div class="options blocks-option">
       <ul>
-        <li id="timeSet">Time</li>
-        <li id="dateSet">Date</li>
-        <li id="greetinSet">Greeting</li>
-        <li id="quotesSet">Quotes</li>
-        <li id="weatherSet">Weather</li>
-        <li id="audioSet">Audio</li>
-        <li id="todoSet">ToDo List</li>
+        <li > <div class="option"> <span id="timeSet"></span>
+          <label class="switch">
+          <input type="checkbox" id="timeSwitch" class="optionsSwitch" checked>
+          <span class="slider round"></span>
+        </label></div></li>
+        <li > <div class="option"> <span id="dateSet"></span>
+          <label class="switch">
+          <input type="checkbox" id="dateSwitch"class="optionsSwitch"  checked>
+          <span class="slider round"></span>
+        </label></div></li>
+        <li > <div class="option"> <span id="greetinSet"></span>
+          <label class="switch">
+          <input type="checkbox" id="greetingSwitch" class="optionsSwitch"  checked>
+          <span class="slider round"></span>
+        </label></div></li>
+        <li > <div class="option"> <span id="quotesSet"></span>
+          <label class="switch">
+          <input type="checkbox" id="quoteSwitch" class="optionsSwitch"  checked>
+          <span class="slider round"></span>
+        </label></div></li>
+        <li > <div class="option"> <span id="weatherSet"></span>
+          <label class="switch">
+          <input type="checkbox" id="weatherSwitch" class="optionsSwitch"  checked>
+          <span class="slider round"></span>
+        </label></div></li>
+        <li > <div class="option"> <span id="audioSet"></span>
+          <label class="switch">
+          <input type="checkbox" id="audioSwitch" class="optionsSwitch"  checked>
+          <span class="slider round"></span>
+        </label></div></li>
+        <li > <div class="option"> <span id="todoSet"></span>
+          <label class="switch">
+          <input type="checkbox" id="todoSwitch" class="optionsSwitch"  checked>
+          <span class="slider round"></span>
+        </label></div></li>
       </ul>
     </div>
-  
+  </div>
     <button class="change-quote"></button>
     <div>
       <div class="quote"></div>   
       <div class="author"></div>
+    </div>
+    <button class="todo-btn" id="todoSwitch"></button>
+    <div class="todo-container">
+      <div class="wrapper">
+      <h3 class="day"> </h3>
+      <button class="clear"></button>
+    </div>
+      <ul class="todo-list">
+      </ul>
+      <input class="new-todo" type="text" placeholder="New Todo">
     </div>
   </footer>
   <script type="module" src="index.js"></script>
