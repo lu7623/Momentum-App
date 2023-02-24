@@ -171,6 +171,8 @@ city.addEventListener("keypress", setCity);
 function setLocalStorage() {
   localStorage.setItem("username", name.value);
   localStorage.setItem("usercity", city.value);
+  localStorage.setItem("userlanguage", state.language);
+  localStorage.setItem("usertodo", todoList.innerHTML);
 }
 window.addEventListener("beforeunload", setLocalStorage);
 
@@ -181,7 +183,23 @@ function getLocalStorage() {
   if (localStorage.getItem("usercity")) {
     city.value = localStorage.getItem("usercity");
   }
+  if (localStorage.getItem("userlanguage")) {
+    state.language = localStorage.getItem("userlanguage");
+  }
+  if (localStorage.getItem("usertodo")) {
+    todoList.innerHTML = localStorage.getItem("usertodo");
+  }
+  
 }
+window.addEventListener('load', function(){
+  getLocalStorage();
+  const check = document.querySelectorAll(".check");
+  const listItem = document.querySelectorAll(".list-item");
+  //const editBtn = document.querySelectorAll(".edit-btn");
+ // const li = document.querySelectorAll('.li-container');  
+isChecked(check,listItem);
+ // listEditPanel(editBtn,li, listItem) 
+});
 
 //quotes
 
@@ -540,6 +558,8 @@ const todoContainer = document.querySelector(".todo-container");
 const day = document.querySelector('.day');
 const deleteLi = document.getElementById('delete');
 const editLi  = document.getElementById('edit');
+const editPanel = document.querySelector('.edit-panel');
+const clearBtn = document.querySelector('.clear');
 
 newTodo.addEventListener("change", function () {
   const todo = newTodo.value;
@@ -547,56 +567,76 @@ newTodo.addEventListener("change", function () {
   const newCheck = document.createElement("input");
   newCheck.setAttribute("type", "checkbox");
   const newLiTitle = document.createElement("span");
-  const editBtn = document.createElement("button");
+  const newEditBtn = document.createElement("button");
   newLiTitle.innerText = todo;
   newLi.classList.add("li-container");
   newLiTitle.classList.add("list-item");
   newCheck.classList.add("check");
-  editBtn.classList.add("edit-btn");
-  editBtn.innerText = '...';
+  newEditBtn.classList.add("edit-btn");
+  newEditBtn.innerText = '...';
   todoList.append(newLi);
   newLi.append(newCheck);
   newLi.append(newLiTitle);
-  newLi.append(editBtn);
+  newLi.append(newEditBtn);
   newTodo.value = "";
-  isChecked();
-  listEdit() ;
-});
-
-function isChecked() {
   const check = document.querySelectorAll(".check");
   const listItem = document.querySelectorAll(".list-item");
-  for (let i = 0; i < check.length; i++) {
-    check[i].addEventListener("change", function () {
-      if (check[i].checked) {
-        listItem[i].classList.add("strikethrough");
+  const editBtn = document.querySelectorAll(".edit-btn");
+  const li = document.querySelectorAll('.li-container');
+  isChecked(check,listItem);
+ // listEditPanel(editBtn,li, listItem) ;
+});
+
+function isChecked(x,y) {
+  for (let i = 0; i < x.length; i++) {
+    x[i].addEventListener("change", function () {
+      if (x[i].checked) {
+        y[i].classList.add("strikethrough");
       } else {
-        listItem[i].classList.remove("strikethrough");
+        y[i].classList.remove("strikethrough");
       }
     });
   }
 }
 
-function listEdit() {
-  const check = document.querySelectorAll(".edit-btn");
-  const editPanel = document.querySelector('.edit-panel');
-  const newLi = document.querySelectorAll('.li-container');
-  for (let i = 0; i < check.length; i++) {
-    check[i].addEventListener("click", function () {
-      if (editPanel.classList.contains('hide')){
-     editPanel.classList.remove('hide')}
-     else {editPanel.classList.add('hide')}
-deleteLi.addEventListener('click', function(){
-  newLi[i].remove();
-  editPanel.classList.add('hide');
-})
-    });
-  }
-  
-}
+// function listEditPanel(x,l,item) {
+//   for (let i = 0; i < x.length; i++) {
+//     console.log(x[i]);
+// x[i].addEventListener("click", function () {
+//   deleteListElement (l[i]);
+//   editListElement (item[i],l[i]);
+//   if (editPanel.classList.contains('hide')){
+//  editPanel.classList.remove('hide');}
+//  else {editPanel.classList.add('hide')}
+// })
+//   }
+// }
+
+
+// function deleteListElement (l) {
+//   deleteLi.addEventListener('click', function(){
+//     l.remove();
+//     editPanel.classList.add('hide');
+//       })
+// }
+
+// function editListElement (y,x) {
+//   editLi.addEventListener('click', function () {
+//     const editInput = document.createElement("input");
+//     editInput.setAttribute("type", "text");
+//     x.append(editInput);
+//     editInput.value = y.innerText;
+// y.classList.add('hide');
+// editInput.addEventListener('change', function () {
+//   y.classList.remove('hide');
+//   y.innerText = editInput.value;
+//   editInput.remove();
+// })
+// })
+// }
 
 document.onclick = function (e) {
-  if (e.target.className != "edit-panel") {
+  if (e.target.className != "edit-panel" && e.target.className != "edit-btn") {
     editPanel.classList.add('hide');
   };
 };
@@ -609,12 +649,14 @@ todoBtn.addEventListener("click", function () {
 
 function todoTranslate() {
   if (state.language == "en") {
+    clearBtn.innerText = 'Clear';
     day.innerText = "Today";
     todoBtn.innerText = "Todo";
     deleteLi.innerText = 'Delete';
     editLi.innerText = 'Edit';
     newTodo.placeholder = "New Todo";}
     else if (state.language == "ru"){
+      clearBtn.innerText = 'Очистить';
       day.innerText = "Сегодня";
     newTodo.placeholder = "Новое дело";
     deleteLi.innerText = 'Удалить';
@@ -623,3 +665,11 @@ function todoTranslate() {
     }
   }
   todoTranslate();
+
+clearBtn.addEventListener('click', function() {
+  const li = document.querySelectorAll('.li-container');
+  li.forEach((x) => {
+    x.remove();
+  })
+})
+

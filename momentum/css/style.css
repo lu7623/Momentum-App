@@ -451,6 +451,17 @@ input:checked + .slider:before {
     min-height: 100px;
 }
 
+.day {
+  width: fit-content;
+}
+
+.wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
 .new-todo{
   height: fit-content;
 position: relative;
@@ -509,9 +520,18 @@ background-color: #eee;
 cursor: pointer;
 z-index: 10;
 position: absolute;
-right: 35px;
+bottom: 50px;
+right: 45px;
 width: 90px;
 padding-left: 10px;
+}
+
+.clear{
+  width: fit-content;
+  padding: 0 5px;
+  height: 20px;
+  border:none;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
