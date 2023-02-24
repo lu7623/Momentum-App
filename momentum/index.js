@@ -195,10 +195,10 @@ window.addEventListener('load', function(){
   getLocalStorage();
   const check = document.querySelectorAll(".check");
   const listItem = document.querySelectorAll(".list-item");
-  //const editBtn = document.querySelectorAll(".edit-btn");
- // const li = document.querySelectorAll('.li-container');  
-isChecked(check,listItem);
- // listEditPanel(editBtn,li, listItem) 
+  const editBtn = document.querySelectorAll(".edit-btn");
+  const li = document.querySelectorAll('.li-container');
+  isChecked(check,listItem);
+  deleteElement(editBtn,li) 
 });
 
 //quotes
@@ -556,9 +556,6 @@ const newTodo = document.querySelector(".new-todo");
 const todoList = document.querySelector(".todo-list");
 const todoContainer = document.querySelector(".todo-container");
 const day = document.querySelector('.day');
-const deleteLi = document.getElementById('delete');
-const editLi  = document.getElementById('edit');
-const editPanel = document.querySelector('.edit-panel');
 const clearBtn = document.querySelector('.clear');
 
 newTodo.addEventListener("change", function () {
@@ -573,7 +570,7 @@ newTodo.addEventListener("change", function () {
   newLiTitle.classList.add("list-item");
   newCheck.classList.add("check");
   newEditBtn.classList.add("edit-btn");
-  newEditBtn.innerText = '...';
+  newEditBtn.innerText = 'x';
   todoList.append(newLi);
   newLi.append(newCheck);
   newLi.append(newLiTitle);
@@ -584,7 +581,7 @@ newTodo.addEventListener("change", function () {
   const editBtn = document.querySelectorAll(".edit-btn");
   const li = document.querySelectorAll('.li-container');
   isChecked(check,listItem);
- // listEditPanel(editBtn,li, listItem) ;
+  deleteElement(editBtn,li) 
 });
 
 function isChecked(x,y) {
@@ -599,47 +596,14 @@ function isChecked(x,y) {
   }
 }
 
-// function listEditPanel(x,l,item) {
-//   for (let i = 0; i < x.length; i++) {
-//     console.log(x[i]);
-// x[i].addEventListener("click", function () {
-//   deleteListElement (l[i]);
-//   editListElement (item[i],l[i]);
-//   if (editPanel.classList.contains('hide')){
-//  editPanel.classList.remove('hide');}
-//  else {editPanel.classList.add('hide')}
-// })
-//   }
-// }
+function deleteElement(x,y) {
+  for (let i = 0; i < x.length; i++) {
+    x[i].addEventListener("click", function () {
+        y[i].remove();
+    });
+  }
+}
 
-
-// function deleteListElement (l) {
-//   deleteLi.addEventListener('click', function(){
-//     l.remove();
-//     editPanel.classList.add('hide');
-//       })
-// }
-
-// function editListElement (y,x) {
-//   editLi.addEventListener('click', function () {
-//     const editInput = document.createElement("input");
-//     editInput.setAttribute("type", "text");
-//     x.append(editInput);
-//     editInput.value = y.innerText;
-// y.classList.add('hide');
-// editInput.addEventListener('change', function () {
-//   y.classList.remove('hide');
-//   y.innerText = editInput.value;
-//   editInput.remove();
-// })
-// })
-// }
-
-document.onclick = function (e) {
-  if (e.target.className != "edit-panel" && e.target.className != "edit-btn") {
-    editPanel.classList.add('hide');
-  };
-};
 
 todoBtn.addEventListener("click", function () {
   todoContainer.classList.toggle("hide");
@@ -652,15 +616,11 @@ function todoTranslate() {
     clearBtn.innerText = 'Clear';
     day.innerText = "Today";
     todoBtn.innerText = "Todo";
-    deleteLi.innerText = 'Delete';
-    editLi.innerText = 'Edit';
     newTodo.placeholder = "New Todo";}
     else if (state.language == "ru"){
       clearBtn.innerText = 'Очистить';
       day.innerText = "Сегодня";
     newTodo.placeholder = "Новое дело";
-    deleteLi.innerText = 'Удалить';
-    editLi.innerText = 'Изменить';
     todoBtn.innerText = "Список дел";
     }
   }

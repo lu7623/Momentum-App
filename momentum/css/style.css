@@ -515,17 +515,6 @@ line-height: 15px;
   justify-content: space-between;
 }
 
-.edit-panel{
-background-color: #eee;
-cursor: pointer;
-z-index: 10;
-position: absolute;
-bottom: 50px;
-right: 45px;
-width: 90px;
-padding-left: 10px;
-}
-
 .clear{
   width: fit-content;
   padding: 0 5px;
