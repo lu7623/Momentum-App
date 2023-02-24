@@ -50,6 +50,7 @@ function showGreeting() {
   let n = getTimeOfDay(time);
   if (state.language == "en") {
     greeting.textContent = `Good ${n},`;
+    name.placeholder = "[Enter name]";
   } else if (state.language == "ru") {
     name.placeholder = "[Введите имя]";
     if (n == "night") {
@@ -181,7 +182,6 @@ function getLocalStorage() {
     city.value = localStorage.getItem("usercity");
   }
 }
-window.addEventListener("load", getLocalStorage);
 
 //quotes
 
@@ -416,14 +416,24 @@ lang.forEach((elem) => {
     var item = event.target.value;
     if (item == "en") {
       state.language = "en";
+      showGreeting();
       getWeather();
       settingsTranslate();
       getQuotes();
+      todoTranslate();
+      if (city.value == 'Минск') {
+        city.value = 'Minsk'
+      }
     } else if (item == "ru") {
       state.language = "ru";
+      showGreeting();
       getWeather();
       settingsTranslate();
       getQuotes();
+      todoTranslate();
+      if (city.value == 'Minsk ') {
+        city.value = 'Минск'
+      }
     }
     console.log(state);
   });
@@ -527,6 +537,9 @@ const todoBtn = document.querySelector(".todo-btn");
 const newTodo = document.querySelector(".new-todo");
 const todoList = document.querySelector(".todo-list");
 const todoContainer = document.querySelector(".todo-container");
+const day = document.querySelector('.day');
+const deleteLi = document.getElementById('delete');
+const editLi  = document.getElementById('edit');
 
 newTodo.addEventListener("change", function () {
   const todo = newTodo.value;
@@ -568,7 +581,6 @@ function listEdit() {
   const check = document.querySelectorAll(".edit-btn");
   const editPanel = document.querySelector('.edit-panel');
   const newLi = document.querySelectorAll('.li-container');
-  const deleteLi = document.getElementById('delete');
   for (let i = 0; i < check.length; i++) {
     check[i].addEventListener("click", function () {
       if (editPanel.classList.contains('hide')){
@@ -592,3 +604,22 @@ document.onclick = function (e) {
 todoBtn.addEventListener("click", function () {
   todoContainer.classList.toggle("hide");
 });
+
+
+
+function todoTranslate() {
+  if (state.language == "en") {
+    day.innerText = "Today";
+    todoBtn.innerText = "Todo";
+    deleteLi.innerText = 'Delete';
+    editLi.innerText = 'Edit';
+    newTodo.placeholder = "New Todo";}
+    else if (state.language == "ru"){
+      day.innerText = "Сегодня";
+    newTodo.placeholder = "Новое дело";
+    deleteLi.innerText = 'Удалить';
+    editLi.innerText = 'Изменить';
+    todoBtn.innerText = "Список дел";
+    }
+  }
+  todoTranslate();
