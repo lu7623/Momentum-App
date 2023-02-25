@@ -37,10 +37,12 @@ body {
   justify-content: space-between;
   width: 120px;
   margin-bottom: 28px;
+  transition: .3s;  
 }
 
 .play-list {
   text-align: left;
+  transition: .3s;  
 }
 
 .play-item {
@@ -127,6 +129,7 @@ body {
   width: 180px;
   min-height: 180px;  
   text-align: left;
+  transition: .3s;  
 }
 
 .weather-error {
@@ -199,12 +202,14 @@ body {
   font-family: 'Arial-MT';
   font-size: 100px;
   letter-spacing: -4px;  
+  transition: .3s;  
 }
 
 .date {
   min-height: 28px;
   font-size: 24px;
   margin-bottom: 20px;
+  transition: .3s;  
 }
 
 .greeting-container {
@@ -215,6 +220,7 @@ body {
   min-height: 48px;
   width: 100vw;
   font-size: 40px;
+  transition: .3s;  
 }
 
 .greeting {
@@ -412,10 +418,13 @@ input:checked + .slider:before {
 
 .hide{
   visibility: hidden;
-  width: 0;
+  height: 0;
+  transform: translate(0, -500px);
+  transition: all 400ms ease;
 }
 
 .todo-btn{
+  transition: .3s;  
   width: 60px;
   height: fit-content;
   position: absolute;
@@ -431,13 +440,14 @@ input:checked + .slider:before {
 }
 
 .todo-container{
+  transition: .3s;  
   display: flex;
   flex-wrap: wrap;
     position: absolute;
     flex-direction: column;
     justify-content: space-between;
     right: 10px;
-    bottom: 7%;
+    bottom: 9%;
     width: 250 px;
     font-size: 14px;
     font-weight: 700;

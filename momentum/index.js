@@ -131,14 +131,18 @@ const humidity = document.querySelector(".humidity");
 const error = document.querySelector(".weather-error");
 const weather = document.querySelector(".weather");
 
-if (state.language == "en") {
-  city.value = "Minsk";
-} else if (state.language == "ru") {
-  city.value = "Минск";
-}
 
 async function getWeather() {
   try {
+    if (city.value == 'Минск' && state.language == 'en') {
+      city.value = 'Minsk'
+    }
+    else if (city.value == 'Minsk' && state.language == 'ru') {
+      city.value = 'Минск'
+    }
+    let speed;
+    if (state.language == 'en') {speed = 'm/s'}
+    else if (state.language == 'ru') {speed = 'м/с'}
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${state.language}&appid=69d8742959633abc3c7e3a16af14871a&units=metric`;
     const res = await fetch(url);
     const data = await res.json();
@@ -146,9 +150,10 @@ async function getWeather() {
     weatherIcon.classList.add(`owf-${data.weather[0].id}`);
     temperature.textContent = `${Math.round(data.main.temp)}°C`;
     weatherDescription.textContent = data.weather[0].description;
-    wind.textContent = `${Math.round(data.wind.speed)} m/s`;
+    wind.textContent = `${Math.round(data.wind.speed)} ${speed}`;
     humidity.textContent = `${data.main.humidity}%`;
     error.innerText = "";
+    
   } catch (e) {
     error.innerText = "Error! try to enter another city";
     temperature.textContent = "";
@@ -198,7 +203,11 @@ window.addEventListener('load', function(){
   const editBtn = document.querySelectorAll(".edit-btn");
   const li = document.querySelectorAll('.li-container');
   isChecked(check,listItem);
-  deleteElement(editBtn,li) 
+  deleteElement(editBtn,li);
+   getQuotes();
+   getWeather();
+      settingsTranslate();
+      todoTranslate();
 });
 
 //quotes
@@ -246,7 +255,7 @@ const playListContainer = document.querySelector(".play-list");
 const player = document.querySelector(".player");
 let isPlay = false;
 let playNum = 0;
-import playList from "./playList.js";
+import playList from "./playlist.js";
 
 function playAudio() {
   audio.src = playList[playNum].src;
@@ -320,8 +329,9 @@ async function setBgUnsplash() {
   let timeOfDay = getTimeOfDay(time);
   const unsplashUrl = `https://api.unsplash.com/photos/random?orientation=landscape&query=${timeOfDay}&client_id=rEz5fpSUULbWREfG6Yj64VdzGQHkGdRR7iAabjo3fT0`;
   const imgUrl = await getLinkToImageUnsplash(unsplashUrl);
-  console.log(imgUrl);
-  body.style.backgroundImage = `url(${imgUrl})`;
+  img.src =  imgUrl;
+  img.onload = () => {
+    body.style.backgroundImage =  `url(${imgUrl})`;}
 }
 
 async function getLinkToImageFlickr(anyurl) {
@@ -333,12 +343,14 @@ async function getLinkToImageFlickr(anyurl) {
 }
 
 async function setBgFlickr() {
+  const img = new Image();
   let time = getHours();
   let timeOfDay = getTimeOfDay(time);
   const flickrUrl = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=d9ed9dcf3ac57aec450fcde722caec11&tags=${timeOfDay},nature&extras=url_l&format=json&nojsoncallback=1`;
   const imgUrl = await getLinkToImageFlickr(flickrUrl);
-  console.log(imgUrl);
-  body.style.backgroundImage = `url(${imgUrl})`;
+  img.src =  imgUrl;
+  img.onload = () => {
+    body.style.backgroundImage =  `url(${imgUrl})`;}
 }
 
 //settings
@@ -449,7 +461,7 @@ lang.forEach((elem) => {
       settingsTranslate();
       getQuotes();
       todoTranslate();
-      if (city.value == 'Minsk ') {
+      if (city.value == 'Minsk') {
         city.value = 'Минск'
       }
     }
@@ -495,8 +507,10 @@ const quoteSwitch = document.getElementById("quoteSwitch");
 const weatherSwitch = document.getElementById("weatherSwitch");
 const audioSwitch = document.getElementById("audioSwitch");
 const todoSwitch = document.getElementById("todoSwitch");
+const greetingContainer = document.querySelector('.greeting-container')
 
 function hideBlocks() {
+  setTimeout(() => {
   if (!timeSwitch.checked) {
     time.classList.add("hide");
   } else {
@@ -508,11 +522,11 @@ function hideBlocks() {
     date1.classList.remove("hide");
   }
   if (!greetingSwitch.checked) {
-    greeting.classList.add("hide");
-    name.classList.add("hide");
+    greetingContainer.classList.add("hide");
+
   } else {
-    greeting.classList.remove("hide");
-    name.classList.remove("hide");
+    greetingContainer.classList.remove("hide");
+   
   }
   if (!quoteSwitch.checked) {
     quote.classList.add("hide");
@@ -542,6 +556,7 @@ function hideBlocks() {
     todoBtn.classList.remove("hide");
     todoContainer.classList.remove("hide");
   }
+}, 300);
 }
 
 const optionsSwitch = document.querySelectorAll(".optionsSwitch");
