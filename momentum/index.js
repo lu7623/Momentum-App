@@ -131,6 +131,11 @@ const humidity = document.querySelector(".humidity");
 const error = document.querySelector(".weather-error");
 const weather = document.querySelector(".weather");
 
+if (state.language == "en") {
+  city.value = "Minsk";
+} else if (state.language == "ru") {
+  city.value = "Минск";
+}
 
 async function getWeather() {
   try {
